@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.36">
+  <GVL Name="GVL" Id="{c03d679b-9458-4fab-95b0-5540868c7e33}">
+    <Declaration><![CDATA[VAR_GLOBAL
+	SERVO_AXIS : ARRAY[1..MAX_AXES] OF AXIS_REF;
+	nciGRPout	AT %Q* 	: ARRAY[1..MAX_NciGroups] OF PLCTONC_NCICHANNEL_REF;
+	nciGRPin	AT %I* 	: ARRAY[1..MAX_NciGroups] OF NCTOPLC_NCICHANNEL_REF;
+	CURRENT_LIMIT 	AT %I* : UINT;
+	CURRENT_ACTUAL 	AT %I* : UINT;
+END_VAR
+VAR_GLOBAL CONSTANT
+	MAX_Axes 		: INT := 3;
+	MAX_NciGroups	: INT := 1;
+END_VAR
+VAR_GLOBAL PERSISTENT
+	PCL AT %Q* : UINT := 1400;
+	CCL AT %Q* : UINT := 600;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

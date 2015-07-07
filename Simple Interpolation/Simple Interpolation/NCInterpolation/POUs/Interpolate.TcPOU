@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.36">
+  <POU Name="Interpolate" Id="{c16359e0-4a48-4735-8709-5996c5563e9c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Interpolate
+VAR_INPUT
+END_VAR
+VAR_OUTPUT
+END_VAR
+VAR
+	nciGrpConfig 			: ARRAY[1..MAX_NciGroups] OF CfgBuildExt3DGroup;
+	nciRemoveConfig			: ARRAY[1..MAX_NciGroups] OF CfgReconfigGroup;
+	fbCreate_Table 			: ARRAY[1..MAX_NciGroups] OF FB_NciFeedTablePreparation;
+	nciFeedTable 			: ARRAY[1..MAX_NciGroups] OF FB_NCIFEEDTABLE;
+	//Table data
+	nciTable 				: ARRAY[1..MAX_NciGroups] OF ST_NCIFEEDGROUPTABLE;
+	stGeoStart				: ST_NciGeoStart;
+	stGeoLine				: ARRAY[1..MAX_NciGroups] OF ST_NciGeoLine;
+	stEndOfTables			: ST_NciEndOfTables;
+		
+	AXIS_X, AXIS_Y, THETA	: ARRAY[1..MAX_NciGroups] OF INT;
+	internal_STATE			: ARRAY[1..MAX_NciGroups] OF INT := [MAX_NciGroups(0)];
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[;]]></ST>
+    </Implementation>
+    <Method Name="GoTo" Id="{0f6960c0-4a35-4337-aaa3-a25f8706b33a}">
+      <Declaration><![CDATA[METHOD PUBLIC GoTo : INT
+VAR_INPUT
+	GROUP								: UDINT;
+	X, Y, T 							: INT;
+	POSITION_X, POSITION_Y, POSITION_T 	: LREAL;
+	VELOCITY 							: LREAL;
+END_VAR
+]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE internal_State[GROUP] OF
+0:
+	AXIS_X[GROUP] 	:= X;
+	AXIS_Y[GROUP]  	:= Y;
+	THETA[GROUP] 	:= T;
+	stGeoLine[GROUP] .fEndPosX	:= POSITION_X;
+	stGeoLine[GROUP] .fEndPosY	:= POSITION_Y;
+	stGeoLine[GROUP] .fEndPosZ	:= POSITION_T;
+	stGeoLine[GROUP] .fVelo		:= VELOCITY;
+	internal_State[GROUP]		:= internal_State[GROUP] + 10;
+10:
+	nciGrpConfig[GROUP](
+	bExecute:= TRUE, 
+	nGroupId:= nciGRPin[GROUP].GrpId, 
+	nXAxisId:= SERVO_AXIS[AXIS_X[GROUP]].NcToPlc.AxisId, 
+	nYAxisId:= SERVO_AXIS[AXIS_Y[GROUP]].NcToPlc.AxisId, 
+	nZAxisId:= SERVO_AXIS[THETA[GROUP]].NcToPlc.AxisId );
+	IF NOT nciGrpConfig[GROUP] .bBusy AND NOT nciGrpConfig[GROUP] .bErr THEN 
+		nciGrpConfig[GROUP]( bExecute:= FALSE );
+		ItpSetOverridePercent(fOverridePercent:= 100, sPlcToNci:= nciGRPout[GROUP]);
+		internal_State[GROUP] := internal_State[GROUP] + 10;
+	END_IF
+20:
+	stGeoStart.fPosX := SERVO_AXIS[X].NcToPlc.ActPos;
+	stGeoStart.fPosY := SERVO_AXIS[Y].NcToPlc.ActPos;
+	stGeoStart.fPosZ := SERVO_AXIS[T].NcToPlc.ActPos;
+	fbCreate_Table[GROUP] (
+	nEntryType		:= E_NciEntryTypeGeoStart, 
+	pEntry			:= ADR(stGeoStart), 
+	bResetTable		:= 	FALSE, 
+	bResetAll		:= 	FALSE, 
+	stFeedGroupTable:= nciTable[GROUP] );
+	internal_State[GROUP] := internal_State[GROUP] + 1;
+21:
+	fbCreate_Table[GROUP] (
+	nEntryType		:= E_NciEntryTypeGeoLine, 
+	pEntry			:= ADR(stGeoLine[GROUP]), 
+	bResetTable		:= 	FALSE, 
+	bResetAll		:= 	FALSE, 
+	stFeedGroupTable:= nciTable[GROUP] );
+	internal_State[GROUP] := internal_State[GROUP] + 1;
+22:
+	fbCreate_Table[GROUP](
+	nEntryType		:= E_NciEntryTypeEndOfTables, 
+	pEntry			:= ADR(stEndOfTables), 
+	bResetTable		:= 	FALSE, 
+	bResetAll		:= 	FALSE, 
+	stFeedGroupTable:= nciTable[GROUP] );
+	internal_State[GROUP] := internal_State[GROUP] + 8;
+30:
+	nciFeedTable[GROUP](
+		bExecute:= TRUE,
+		bLogFeederEntries:= FALSE, 
+		stFeedGroupTable:= nciTable[GROUP], 
+		stNciToPlc:= nciGRPin[GROUP] );
+	IF 	nciFeedTable[GROUP].bChannelDone THEN 
+		nciFeedTable[GROUP](
+			bExecute		:= FALSE,
+			stFeedGroupTable:= nciTable[GROUP], 
+			stNciToPlc		:= nciGRPin[GROUP] );
+		fbCreate_Table[GROUP](  
+			bResetAll		:= TRUE, 
+			stFeedGroupTable:= nciTable[GROUP] );
+		internal_State[GROUP] := internal_State[GROUP] + 10;
+	END_IF
+40:
+	nciRemoveConfig[GROUP](
+		bExecute:= TRUE, 
+		nGroupId:= nciGRPin[GROUP].GrpId, 
+		tTimeOut:= T#500MS );
+	IF NOT nciRemoveConfig[GROUP].bBusy THEN
+		nciRemoveConfig[GROUP](
+			bExecute:= FALSE, 
+			nGroupId:= nciGRPin[GROUP].GrpId, 
+			tTimeOut:= T#500MS );
+		internal_State[GROUP] := 0;
+		GoTo := 100;
+	END_IF
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+  </POU>
+</TcPlcObject>
