@@ -1,0 +1,24 @@
+{
+  "$schema": "../TcHmiSrv/schema/Language.Schema.json",
+  "locale": "en",
+  "localizedText": {
+    "TARGET_SYSTEMS": "Target Systems",
+    "DESC_TARGET_SYSTEMS": "Target systems from which events and alarms are collected",
+    "DESC_TARGET_SYSTEM": "Target System",
+    "LIMIT_INITIAL_EVENT_IMPORT": "Limit initial event import",
+    "DESC_LIMIT_INITIAL_EVENT_IMPORT": "When a target system is initialized, the newest existing events are imported",
+
+    "ADDRESS": "Address",
+    "ENABLED": "Enabled",
+
+    "ALARM_REQUIRESCONFIRMATION": "Alarm {0} requires confirmation",
+    "ALARM_RAISED": "Alarm raised: {0}",
+    "ALARM_CLEARED": "Alarm cleared: {0}",
+    "ALARM_DISPOSED": "Alarm disposed: {0}",
+    "ALARM_CONFIRMED": "Alarm confirmed: {0}",
+    "ALARM_INITIALIZED": "Alarm initialized: {0}",
+
+    "CAN_NOT_CREATE_PROXY": "Can't create TcEventLoggerProxy",
+    "TARGET_NOT_FOUND": "Target not found"
+  }
+}

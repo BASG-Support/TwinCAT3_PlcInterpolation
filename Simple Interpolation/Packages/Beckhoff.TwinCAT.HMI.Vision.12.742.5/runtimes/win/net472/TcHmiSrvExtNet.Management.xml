@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TcHmiSrvExtNet.Management</name>
+    </assembly>
+    <members>
+        <member name="T:TcHmiSrv.Management.ExtensionTypeAttribute">
+            <summary>
+            Specifies the default <see cref="T:System.Type"/> of a TwinCAT HMI server extension. This class cannot be inherited.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Management.ExtensionTypeAttribute.Type">
+            <summary>
+            Gets the default <see cref="T:System.Type"/> of the TwinCAT HMI server extension.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Management.ExtensionTypeAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.Management.ExtensionTypeAttribute"/> class with the specified <see cref="T:System.Type"/>.
+            </summary>
+            <param name="type">The default <see cref="T:System.Type"/> of the TwinCAT HMI server extension.</param>
+        </member>
+        <member name="T:TcHmiSrv.Management.ExtensionWithPath">
+            <summary>
+            The base class for a managed TwinCAT HMI server extension that contains the path of the server extension.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Management.ExtensionWithPath.ExtensionPath">
+            <summary>
+            Contains the path of the server extension.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Management.ExtensionWithPath.Init(TcHmiSrv.ITcHmiSrvExtHost,TcHmiSrv.Context)">
+            <summary>
+            Initializes the server extension.
+            </summary>
+            <param name="host">The <see cref="T:TcHmiSrv.ITcHmiSrvExtHost"/> that is used to initialize the server extension.</param>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> that is used to initialize the server extension.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if initializing the server extension succeeded; or another <see cref="T:TcHmiSrv.ErrorValue"/> that describes which error has occurred.</returns>
+        </member>
+        <member name="T:TcHmiSrv.Management.IExtension">
+            <summary>
+            The default interface for a managed TwinCAT HMI server extension.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Management.IExtension.Init(TcHmiSrv.ITcHmiSrvExtHost,TcHmiSrv.Context)">
+            <summary>
+            Initializes the server extension.
+            </summary>
+            <param name="host">The <see cref="T:TcHmiSrv.ITcHmiSrvExtHost"/> that is used to initialize the server extension.</param>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> that is used to initialize the server extension.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if initializing the server extension succeeded; or another <see cref="T:TcHmiSrv.ErrorValue"/> that describes which error has occurred.</returns>
+        </member>
+    </members>
+</doc>
