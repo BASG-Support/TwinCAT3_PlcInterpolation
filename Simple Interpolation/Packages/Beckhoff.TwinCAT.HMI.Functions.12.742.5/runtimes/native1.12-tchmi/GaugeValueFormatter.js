@@ -1,0 +1,1 @@
+var TcHmi;!function(t){let e;!function(t){let e;!function(t){t.GaugeValueFormatter=function(t,e=1/0){return null==t?"":(isFinite(e)||(e=3),t.toFixed(e))}}(e=t.Beckhoff||(t.Beckhoff={})),t.registerFunctionEx("GaugeValueFormatter","TcHmi.Functions.Beckhoff",e.GaugeValueFormatter)}(e=t.Functions||(t.Functions={}))}(TcHmi||(TcHmi={}));

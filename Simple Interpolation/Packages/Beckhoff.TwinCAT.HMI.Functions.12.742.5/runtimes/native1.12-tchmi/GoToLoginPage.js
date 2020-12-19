@@ -1,0 +1,1 @@
+var TcHmi;!function(o){let n;!function(n){let i;!function(n){n.GoToLoginPage=function(){return 4===o.Server.getCurrentUserConfig().state&&(window.location.href="/Logout?LoginLocation="+window.location.pathname,!0)}}(i=n.Beckhoff||(n.Beckhoff={})),n.registerFunctionEx("GoToLoginPage","TcHmi.Functions.Beckhoff",i.GoToLoginPage)}(n=o.Functions||(o.Functions={}))}(TcHmi||(TcHmi={}));

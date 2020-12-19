@@ -1,0 +1,1 @@
+var TcHmi;!function(c){let e;!function(e){let n;!function(e){e.CheckAccess=function(e,n){if(!e||!n)return!1;let i=c.Access.checkAccess(e,n);return null!==i&&i}}(n=e.Beckhoff||(e.Beckhoff={})),e.registerFunctionEx("CheckAccess","TcHmi.Functions.Beckhoff",n.CheckAccess)}(e=c.Functions||(c.Functions={}))}(TcHmi||(TcHmi={}));

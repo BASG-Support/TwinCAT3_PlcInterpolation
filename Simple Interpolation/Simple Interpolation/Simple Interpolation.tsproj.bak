@@ -2249,7 +2249,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..0] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..0] OF BIT</Name>
 			<BitSize>1</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -2258,7 +2258,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..2] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..2] OF BIT</Name>
 			<BitSize>3</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -2267,7 +2267,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..3] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..3] OF BIT</Name>
 			<BitSize>4</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -2294,7 +2294,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..5] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..5] OF BIT</Name>
 			<BitSize>6</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -2347,15 +2347,14 @@ External Setpoint Generation:
 					<Name>NC-Task 1 SVB</Name>
 				</SvbTask>
 				<Axis Id="2" CreateSymbols="true" AxisType="1" GroupId="1">
-					<Name>FaulHaber_X</Name>
+					<Name>X</Name>
 					<AxisPara>
-						<General UnitName="°"/>
 						<Dynamic Acceleration="1925.33" Deceleration="1925.33" Jerk="187.597" DelayTime="0.015"/>
 						<Velo Maximum="38000"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
-					<Encoder Name="Enc" EncType="19">
-						<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="3000" MaxCount="#xffffffff">
+					<Encoder Name="Enc" EncType="1">
+						<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="3000">
 							<Inc RefSoftSyncMask="#x0000ffff"/>
 						</EncPara>
 						<Vars VarGrpType="1">
@@ -2411,9 +2410,9 @@ External Setpoint Generation:
 							</Var>
 						</Vars>
 					</Encoder>
-					<Drive Name="Drive" DrvType="16">
-						<DrvPara MaxCount="#xffffffff">
-							<Analog VeloReferenz="42000"/>
+					<Drive Name="Drive" DrvType="5">
+						<DrvPara>
+							<Analog VeloReferenz="42000" TorqueSetpointScale="10"/>
 							<TimeComp TaskDelayCycles="1"/>
 						</DrvPara>
 						<Vars VarGrpType="1">
@@ -2454,6 +2453,22 @@ External Setpoint Generation:
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut2</Name>
 								</SubVar>
+								<SubVar>
+									<Name>nCtrl2</Name>
+									<Comment><![CDATA[Digital Outputs Setpoint Generator:
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]></Comment>
+								</SubVar>
+								<SubVar>
+									<Name>nCtrl3</Name>
+									<Comment><![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]></Comment>
+								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut3</Name>
 								</SubVar>
@@ -2491,9 +2506,8 @@ External Setpoint Generation:
 					</Vars>
 				</Axis>
 				<Axis Id="4" CreateSymbols="true" AxisType="1" GroupId="2">
-					<Name>Stepper</Name>
+					<Name>Y</Name>
 					<AxisPara>
-						<General UnitName="°"/>
 						<Dynamic Acceleration="4600" Deceleration="4600" Jerk="21160" DelayTime="0.015"/>
 						<Velo Maximum="3600"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -2653,9 +2667,8 @@ External Setpoint Generation:
 					</Vars>
 				</Axis>
 				<Axis Id="5" CreateSymbols="true" AxisType="1" GroupId="3">
-					<Name>Servo</Name>
+					<Name>Z</Name>
 					<AxisPara>
-						<General UnitName="°"/>
 						<Dynamic Acceleration="17000" Deceleration="17000" Jerk="289000" DelayTime="0.015"/>
 						<Velo Maximum="16000"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -3755,16 +3768,6 @@ Slave-Mode:
 	</Project>
 	<Mappings>
 		<MappingInfo Identifier="{05000010-2001-0850-3000-040300205008}" Id="#x02030010" Watchdog="08000000040000000400000004000000"/>
-		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^FaulHaber_X">
-			<OwnerB Name="TIID^Device 1 (EL6751)^Box 26 (CANopen Slave)">
-				<Link VarA="Drive^Inputs^In^nState1" VarB="TxPDO 1^Inputs^Statusword"/>
-				<Link VarA="Drive^Inputs^In^nState2" VarB="TxPDO 1^Inputs^Statusword" Size="8" OffsB="8"/>
-				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="RxPDO 1^Outputs^Controlword"/>
-				<Link VarA="Drive^Outputs^Out^nCtrl2" VarB="RxPDO 1^Outputs^Controlword" Size="8" OffsB="8"/>
-				<Link VarA="Drive^Outputs^Out^nDataOut1" VarB="RxPDO 1^Outputs^Target Position"/>
-				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="TxPDO 1^Inputs^Actual Position"/>
-			</OwnerB>
-		</OwnerA>
 		<OwnerA Name="TIPC^NCInterpolation^NCInterpolation Instance">
 			<OwnerB Name="TIID^Device 1 (EL6751)^Box 26 (CANopen Slave)">
 				<Link VarA="PlcTask Inputs^GVL.CURRENT_ACTUAL" VarB="TxPDO 2^Inputs^Current Actual Limit"/>
@@ -3772,17 +3775,17 @@ Slave-Mode:
 				<Link VarA="PlcTask Outputs^GVL.CCL" VarB="RxPDO 2^Outputs^CCL"/>
 				<Link VarA="PlcTask Outputs^GVL.PCL" VarB="RxPDO 2^Outputs^PCL"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^FaulHaber_X">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^X">
 				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[1].NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[1].PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Servo">
-				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[3].NcToPlc" VarB="Outputs^ToPlc"/>
-				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[3].PlcToNc" VarB="Inputs^FromPlc"/>
-			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Stepper">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Y">
 				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[2].NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[2].PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Z">
+				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[3].NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[3].PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^NCI 2">
 				<Link VarA="PlcTask Inputs^GVL.nciGRPin[1]" VarB="Outputs^ToPlc"/>
