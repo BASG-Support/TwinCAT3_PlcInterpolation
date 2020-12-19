@@ -12,6 +12,7 @@
     <Implicit_KindOfTask>{672922f1-f5c5-45c1-80b4-ff86456570ec}</Implicit_KindOfTask>
     <Implicit_Jitter_Distribution>{062342fa-4c01-450a-ab8c-be5dc4c83851}</Implicit_Jitter_Distribution>
     <LibraryReferences>{83ca7d22-a696-4d34-8453-6365a88e48a2}</LibraryReferences>
+    <Released>false</Released>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GVLs\GVL.TcGVL">
@@ -24,6 +25,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\P_UML_Grafcet_Sequence.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -58,6 +62,12 @@
       <DefaultResolution>Tc3_Module, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc3_Module</Namespace>
     </PlaceholderReference>
+    <PlaceholderReference Include="UML State Chart Types">
+      <DefaultResolution>UML Statechart Types, 4.1.1.0 (3S - Smart Software Solutions GmbH)</DefaultResolution>
+      <Namespace>UML_SC</Namespace>
+      <SystemLibrary>true</SystemLibrary>
+      <ResolverGuid>d9a6b70a-92f0-4827-8ca3-8ce8a61652d9</ResolverGuid>
+    </PlaceholderReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="NCInterpolation.tmc">
@@ -75,7 +85,10 @@
         <o>
           <v n="Name">"{192FAD59-8248-4824-A8DE-9177C94C195A}"</v>
           <d n="SubKeys" t="Hashtable" />
-          <d n="Values" t="Hashtable" />
+          <d n="Values" t="Hashtable" ckt="String" cvt="String">
+            <v>CurrentUmlCompilerVersion</v>
+            <v>4.1.1.0</v>
+          </d>
         </o>
         <v>{29BD8D0C-3586-4548-BB48-497B9A01693F}</v>
         <o>
