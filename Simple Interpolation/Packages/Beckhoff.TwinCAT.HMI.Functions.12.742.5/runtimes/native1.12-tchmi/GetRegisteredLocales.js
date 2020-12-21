@@ -1,0 +1,1 @@
+var TcHmi;!function(e){let c;!function(c){let t;!function(c){c.GetRegisteredLocales=function(){return e.Locale.getRegisteredLocales()}}(t=c.Beckhoff||(c.Beckhoff={})),c.registerFunctionEx("GetRegisteredLocales","TcHmi.Functions.Beckhoff",t.GetRegisteredLocales)}(c=e.Functions||(e.Functions={}))}(TcHmi||(TcHmi={}));

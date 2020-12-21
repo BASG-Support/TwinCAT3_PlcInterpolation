@@ -1,0 +1,2372 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TcHmiSrvExtNet</name>
+    </assembly>
+    <members>
+        <member name="T:TcHmiSrv.Alarm">
+            <summary>
+            Represents an alarm.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Alarm.Equals(TcHmiSrv.Alarm)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Alarm"/> is equal to another <see cref="T:TcHmiSrv.Alarm"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Alarm"/> to compare with this <see cref="T:TcHmiSrv.Alarm"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Alarm"/> is equal to the other <see cref="T:TcHmiSrv.Alarm"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.Binary">
+            <summary>
+            Represents binary data.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Binary.Equals(TcHmiSrv.Binary)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Binary"/> is equal to another <see cref="T:TcHmiSrv.Binary"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Binary"/> to compare with this <see cref="T:TcHmiSrv.Binary"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Binary"/> is equal to the other <see cref="T:TcHmiSrv.Binary"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Binary.#ctor(System.Byte[],System.UInt32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.Binary"/> class with the specified <see cref="T:System.Byte"/> array and length.
+            </summary>
+            <param name="bytes">The <see cref="T:System.Byte"/> array to be set.</param>
+            <param name="length">The length of the binary data.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.#ctor(System.Byte[],System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.Binary"/> class with the specified <see cref="T:System.Byte"/> array and length.
+            </summary>
+            <param name="bytes">The <see cref="T:System.Byte"/> array to be set.</param>
+            <param name="length">The length of the binary data.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.#ctor(System.Byte[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.Binary"/> class with the specified <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="bytes">The <see cref="T:System.Byte"/> array to be set.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.op_Equality(TcHmiSrv.Binary,TcHmiSrv.Binary)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Binary"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Binary"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Binary"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Binary.op_Inequality(TcHmiSrv.Binary,TcHmiSrv.Binary)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Binary"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Binary"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Binary"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Binary.op_Implicit(TcHmiSrv.Binary)~System.Byte[]">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Binary"/> class to the appropriate <see cref="T:System.Byte"/> array.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Binary"/> to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.op_Implicit(System.Byte[])~TcHmiSrv.Binary">
+            <summary>
+            Converts a <see cref="T:System.Byte"/> array to the appropriate instance of the <see cref="T:TcHmiSrv.Binary"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte"/> array to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.op_Implicit(TcHmiSrv.Binary)~System.Decimal">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Binary"/> class to the appropriate <see cref="T:System.Decimal"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Binary"/> to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.op_Implicit(System.Decimal)~TcHmiSrv.Binary">
+            <summary>
+            Converts a <see cref="T:System.Decimal"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Binary"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Decimal"/> to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.set_binary(System.Byte[],System.UInt32)">
+            <summary>
+            Sets the binary data to the specified <see cref="T:System.Byte"/> array using the specified length.
+            </summary>
+            <param name="bytes">The <see cref="T:System.Byte"/> array to be set.</param>
+            <param name="length">The length of the binary data.</param>
+        </member>
+        <member name="M:TcHmiSrv.Binary.set_binary(System.Byte[],System.Int32)">
+            <summary>
+            Sets the binary data to the specified <see cref="T:System.Byte"/> array using the specified length.
+            </summary>
+            <param name="bytes">The <see cref="T:System.Byte"/> array to be set.</param>
+            <param name="length">The length of the binary data.</param>
+        </member>
+        <member name="M:TcHmiSrv.Command.Equals(TcHmiSrv.Command)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Command"/> is equal to another <see cref="T:TcHmiSrv.Command"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Command"/> to compare with this <see cref="T:TcHmiSrv.Command"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Command"/> is equal to the other <see cref="T:TcHmiSrv.Command"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.CommandGroup">
+            <summary>
+            Represents a group of <see cref="T:TcHmiSrv.Command"/>s.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.Equals(TcHmiSrv.CommandGroup)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.CommandGroup"/> is equal to another <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.CommandGroup"/> to compare with this <see cref="T:TcHmiSrv.CommandGroup"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.CommandGroup"/> is equal to the other <see cref="T:TcHmiSrv.CommandGroup"/>; otherwise, false.</returns>
+        </member>
+        <member name="P:TcHmiSrv.CommandGroup.Count">
+            <summary>
+            Gets the number of the <see cref="T:TcHmiSrv.Command"/>s contained in the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.CommandGroup.IsReadOnly">
+            <summary>
+            Gets a value that indicates whether the <see cref="T:TcHmiSrv.CommandGroup"/> is read-only.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.CommandGroup.System#Collections#Generic#IList{TcHmiSrv#Command}#Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:TcHmiSrv.Command"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the <see cref="T:TcHmiSrv.Command"/> to get or set.</param>
+            <returns>The <see cref="T:TcHmiSrv.Command"/> at the specified index.</returns>
+        </member>
+        <member name="P:TcHmiSrv.CommandGroup.Item(System.UInt32)">
+            <summary>
+            Gets or sets the <see cref="T:TcHmiSrv.Command"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the <see cref="T:TcHmiSrv.Command"/> to get or set.</param>
+            <returns>The <see cref="T:TcHmiSrv.Command"/> at the specified index.</returns>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.Add(TcHmiSrv.Command)">
+            <summary>
+            Adds a <see cref="T:TcHmiSrv.Command"/> to the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Command"/> to add to the <see cref="T:TcHmiSrv.CommandGroup"/>.</param>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.Clear">
+            <summary>
+            Removes all <see cref="T:TcHmiSrv.Command"/>s from the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.Contains(TcHmiSrv.Command)">
+            <summary>
+            Determines whether the <see cref="T:TcHmiSrv.CommandGroup"/> contains the specified <see cref="T:TcHmiSrv.Command"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Command"/> to locate in the <see cref="T:TcHmiSrv.CommandGroup"/>.</param>
+            <returns>true if <paramref name="item"/> is found in the <see cref="T:TcHmiSrv.CommandGroup"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.CopyTo(TcHmiSrv.Command[],System.Int32)">
+            <summary>
+            Copies the <see cref="T:TcHmiSrv.Command"/>s of the <see cref="T:TcHmiSrv.CommandGroup"/> to an <see cref="T:System.Array"/> starting at the specified <see cref="T:System.Array"/> index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the <see cref="T:TcHmiSrv.Command"/>s copied from the <see cref="T:TcHmiSrv.CommandGroup"/>. The <see cref="T:System.Array"/> must have zero-based indexing.</param>
+            <param name="arrayIndex">The zero-based index in <paramref name="array"/> at which copying begins.</param>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.IndexOf(TcHmiSrv.Command)">
+            <summary>
+            Determines the index of the specific <see cref="T:TcHmiSrv.Command"/> in the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Command"/> to locate in the <see cref="T:TcHmiSrv.CommandGroup"/>.</param>
+            <returns>The index of <paramref name="item"/> if found in the <see cref="T:TcHmiSrv.CommandGroup"/>; otherwise, -1.</returns>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.Insert(System.Int32,TcHmiSrv.Command)">
+            <summary>
+            Inserts a <see cref="T:TcHmiSrv.Command"/> to the <see cref="T:TcHmiSrv.CommandGroup"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param>
+            <param name="item">The <see cref="T:TcHmiSrv.Command"/> to insert into the <see cref="T:TcHmiSrv.CommandGroup"/>.</param>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.Remove(TcHmiSrv.Command)">
+            <summary>
+            Removes the first occurrence of the specified <see cref="T:TcHmiSrv.Command"/> from the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Command"/> to remove from the <see cref="T:TcHmiSrv.CommandGroup"/>.</param>
+            <returns>true if <paramref name="item"/> was successfully removed from the <see cref="T:TcHmiSrv.CommandGroup"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:TcHmiSrv.CommandGroup"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:TcHmiSrv.Command"/> at the specified index of the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <param name="index">The zero-based index of the <see cref="T:TcHmiSrv.Command"/> to remove.</param>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.System#Collections#Generic#IEnumerable{TcHmiSrv#Command}#GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1"/> that iterates through the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the <see cref="T:TcHmiSrv.CommandGroup"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.CommandGroup.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.IEnumerator"/> that iterates through the <see cref="T:TcHmiSrv.CommandGroup"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.IEnumerator"/> that can be used to iterate through the <see cref="T:TcHmiSrv.CommandGroup"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.CommandVectorIterator.Equals(TcHmiSrv.CommandVectorIterator)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.CommandVectorIterator"/> is equal to another <see cref="T:TcHmiSrv.CommandVectorIterator"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.CommandVectorIterator"/> to compare with this <see cref="T:TcHmiSrv.CommandVectorIterator"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.CommandVectorIterator"/> is equal to the other <see cref="T:TcHmiSrv.CommandVectorIterator"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.Context">
+            <summary>
+            Represents the context of an invoked method or symbol.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Context.Equals(TcHmiSrv.Context)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Context"/> is equal to another <see cref="T:TcHmiSrv.Context"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Context"/> to compare with this <see cref="T:TcHmiSrv.Context"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Context"/> is equal to the other <see cref="T:TcHmiSrv.Context"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Context.op_Equality(TcHmiSrv.Context,TcHmiSrv.Context)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Context"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Context"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Context"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Context.op_Inequality(TcHmiSrv.Context,TcHmiSrv.Context)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Context"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Context"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Context"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Event.Equals(TcHmiSrv.Event)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Event"/> is equal to another <see cref="T:TcHmiSrv.Event"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Event"/> to compare with this <see cref="T:TcHmiSrv.Event"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Event"/> is equal to the other <see cref="T:TcHmiSrv.Event"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.Localizable">
+            <summary>
+            Represents a localizable object that contains a language variable and parameters.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Message.Equals(TcHmiSrv.Message)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Message"/> is equal to another <see cref="T:TcHmiSrv.Message"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Message"/> to compare with this <see cref="T:TcHmiSrv.Message"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Message"/> is equal to the other <see cref="T:TcHmiSrv.Message"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.Range">
+            <summary>
+            Represents binary data.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Range.Equals(TcHmiSrv.Range)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Range"/> is equal to another <see cref="T:TcHmiSrv.Range"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Range"/> to compare with this <see cref="T:TcHmiSrv.Range"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Range"/> is equal to the other <see cref="T:TcHmiSrv.Range"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Range.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.Range"/> class with the specified lower and upper bound.
+            </summary>
+            <param name="lower">The lower bound.</param>
+            <param name="upper">The lower bound.</param>
+        </member>
+        <member name="M:TcHmiSrv.Range.op_Equality(TcHmiSrv.Range,TcHmiSrv.Range)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Range"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Range"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Range"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Range.op_Inequality(TcHmiSrv.Range,TcHmiSrv.Range)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Range"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Range"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Range"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.ResultPair">
+            <summary>
+            Represents a result pair that contains the <see cref="T:TcHmiSrv.ErrorValue"/> and a <see cref="T:System.String"/> that describes the result of a method call.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.ResultPair.Equals(TcHmiSrv.ResultPair)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.ResultPair"/> is equal to another <see cref="T:TcHmiSrv.ResultPair"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.ResultPair"/> to compare with this <see cref="T:TcHmiSrv.ResultPair"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.ResultPair"/> is equal to the other <see cref="T:TcHmiSrv.ResultPair"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ResultPair.op_Equality(TcHmiSrv.ResultPair,TcHmiSrv.ResultPair)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.ResultPair"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.ResultPair"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.ResultPair"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ResultPair.op_Inequality(TcHmiSrv.ResultPair,TcHmiSrv.ResultPair)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.ResultPair"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.ResultPair"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.ResultPair"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.Session">
+            <summary>
+            Represents a session that contains information about an active user.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Session.Equals(TcHmiSrv.Session)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Session"/> is equal to another <see cref="T:TcHmiSrv.Session"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Session"/> to compare with this <see cref="T:TcHmiSrv.Session"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Session"/> is equal to the other <see cref="T:TcHmiSrv.Session"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Session.op_Equality(TcHmiSrv.Session,TcHmiSrv.Session)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Session"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Session"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Session"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Session.op_Inequality(TcHmiSrv.Session,TcHmiSrv.Session)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Session"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Session"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Session"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.String">
+            <summary>
+            Represents text.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.String.Equals(TcHmiSrv.String)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.String"/> is equal to another <see cref="T:TcHmiSrv.String"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.String"/> to compare with this <see cref="T:TcHmiSrv.String"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.String"/> is equal to the other <see cref="T:TcHmiSrv.String"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.String.op_Equality(TcHmiSrv.String,TcHmiSrv.String)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.String"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.String"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.String"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.String.op_Inequality(TcHmiSrv.String,TcHmiSrv.String)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.String"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.String"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.String"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.String.op_Implicit(TcHmiSrv.String)~System.String">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.String"/> class to the appropriate instance of the <see cref="T:System.String"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.String"/> to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.String.op_Implicit(System.String)~TcHmiSrv.String">
+            <summary>
+            Converts an instance of the <see cref="T:System.String"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.String"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.String"/> to convert.</param>
+        </member>
+        <member name="T:TcHmiSrv.Timespan">
+            <summary>
+            Represents a period of time in nanoseconds.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Timespan.Equals(TcHmiSrv.Timespan)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Timespan"/> is equal to another <see cref="T:TcHmiSrv.Timespan"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Timespan"/> to compare with this <see cref="T:TcHmiSrv.Timespan"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Timespan"/> is equal to the other <see cref="T:TcHmiSrv.Timespan"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Timespan.op_Equality(TcHmiSrv.Timespan,TcHmiSrv.Timespan)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Timespan"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Timespan"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Timespan"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Timespan.op_Inequality(TcHmiSrv.Timespan,TcHmiSrv.Timespan)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Timespan"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Timespan"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Timespan"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Timespan.op_Implicit(TcHmiSrv.Timespan)~System.TimeSpan">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Timespan"/> class to the appropriate instance of the <see cref="T:System.TimeSpan"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Timespan"/> to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.Timespan.op_Implicit(System.TimeSpan)~TcHmiSrv.Timespan">
+            <summary>
+            Converts an instance of the <see cref="T:System.TimeSpan"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Timespan"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.TimeSpan"/> to convert.</param>
+        </member>
+        <member name="T:TcHmiSrv.Timestamp">
+            <summary>
+            Represents a point of time since January 01, 1970.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Timestamp.Equals(TcHmiSrv.Timestamp)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Timestamp"/> is equal to another <see cref="T:TcHmiSrv.Timestamp"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Timestamp"/> to compare with this <see cref="T:TcHmiSrv.Timestamp"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Timestamp"/> is equal to the other <see cref="T:TcHmiSrv.Timestamp"/>; otherwise, false.</returns>
+        </member>
+        <member name="P:TcHmiSrv.Timestamp.Now">
+            <summary>
+            Gets a <see cref="T:TcHmiSrv.Timestamp"/> that represents the current point of time.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Timestamp.op_Equality(TcHmiSrv.Timestamp,TcHmiSrv.Timestamp)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Timestamp"/> class are equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Timestamp"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Timestamp"/> to compare.</param>
+            <returns>true if <paramref name="current"/> equals <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Timestamp.op_Inequality(TcHmiSrv.Timestamp,TcHmiSrv.Timestamp)">
+            <summary>
+            Determines whether two instances of the <see cref="T:TcHmiSrv.Timestamp"/> class are not equal.
+            </summary>
+            <param name="current">The first <see cref="T:TcHmiSrv.Timestamp"/> to compare.</param>
+            <param name="other">The second <see cref="T:TcHmiSrv.Timestamp"/> to compare.</param>
+            <returns>true if <paramref name="current"/> does not equal <paramref name="other"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Timestamp.op_Implicit(TcHmiSrv.Timestamp)~System.DateTime">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Timestamp"/> class to the appropriate instance of the <see cref="T:System.DateTime"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Timestamp"/> to convert.</param>
+        </member>
+        <member name="M:TcHmiSrv.Timestamp.op_Implicit(System.DateTime)~TcHmiSrv.Timestamp">
+            <summary>
+            Converts an instance of the <see cref="T:System.DateTime"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Timestamp"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.DateTime"/> to convert.</param>
+        </member>
+        <member name="T:TcHmiSrv.Value">
+            <summary>
+            Represents a value of any <see cref="T:TcHmiSrv.ValueType"/>.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Value.Equals(TcHmiSrv.Value)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.Value"/> is equal to another <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.Value"/> to compare with this <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.Value"/> is equal to the other <see cref="T:TcHmiSrv.Value"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Boolean">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Boolean"/> value.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Boolean"/> value that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Boolean)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.Boolean"/> value to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Boolean"/> value to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Byte">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Byte"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Byte"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Byte)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:System.Byte"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.SByte">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.SByte"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.SByte"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.SByte)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:System.SByte"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.SByte"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Char">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Char"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Char"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Char)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.Char"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Char"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Int16">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Int16"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Int16"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Int16)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:System.Int16"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Int16"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.UInt16">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.UInt16"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:System.UInt16"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.UInt16)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:System.UInt16"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.UInt16"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Int32">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Int32"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:System.Int32"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Int32)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:System.Int32"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Int32"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.UInt32">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.UInt32"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:System.UInt32"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.UInt32)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:System.UInt32"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.UInt32"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Int64">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Int64"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Int64"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Int64)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.Int64"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Int64"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.UInt64">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.UInt64"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:System.UInt64"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.UInt64)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.UInt64"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.UInt64"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Single">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Single"/>-precision floating-point number.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Single"/>ing-point number that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Single)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.Single"/>-precision floating-point number to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Single"/>-precision floating-point number to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.Double">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.Double"/>-precision floating-point number.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.Double"/>-precision floating-point number that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.Double)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.Double"/>-precision floating-point number to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.Double"/>-precision floating-point number to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~System.String">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:System.String"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:System.String"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(System.String)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:System.String"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:System.String"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Access">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:TcHmiSrv.Access"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:TcHmiSrv.Access"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Access)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:TcHmiSrv.Access"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Access"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Alarm">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:TcHmiSrv.Alarm"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:TcHmiSrv.Alarm"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Alarm)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:TcHmiSrv.Alarm"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Alarm"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Event">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:TcHmiSrv.Event"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>An <see cref="T:TcHmiSrv.Event"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Event)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:TcHmiSrv.Event"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Event"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Message">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:TcHmiSrv.Message"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Message"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Message)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:TcHmiSrv.Message"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Message"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Severity">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:TcHmiSrv.Severity"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Severity"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Severity)~TcHmiSrv.Value">
+            <summary>
+            Converts a <see cref="T:TcHmiSrv.Severity"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Severity"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Timestamp">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Timestamp"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Timestamp"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Timestamp)~TcHmiSrv.Value">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Timestamp"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Timestamp"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Timespan">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Timespan"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Timespan"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Timespan)~TcHmiSrv.Value">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Timespan"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Timespan"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.GetTypeCode">
+            <summary>
+            Gets the <see cref="T:System.TypeCode"/> for this <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <returns>The <see cref="T:System.TypeCode"/> of the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToBoolean(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Boolean"/> value using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Boolean"/> value that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToByte(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Byte"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Byte"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToChar(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Char"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Char"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToDateTime(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.DateTime"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.DateTime"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToDecimal(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Decimal"/> value using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Decimal"/> value that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToDouble(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Double"/>-precision floating-point number using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Double"/>-precision floating-point number that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToInt16(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Int16"/> integer using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Int16"/> integer that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToInt32(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Int32"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>An <see cref="T:System.Int32"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToInt64(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Int64"/> integer using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Int64"/> integer that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToSByte(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.SByte"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.SByte"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToSingle(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Single"/>-precision floating-point number using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.Single"/>-precision floating-point number that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToString(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.String"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>A <see cref="T:System.String"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToType(System.Type,System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.Object"/> of the specified <see cref="T:System.Type"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="conversionType">The <see cref="T:System.Type"/> to which this <see cref="T:TcHmiSrv.Value"/> is converted.</param>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>An <see cref="T:System.Object"/> of <paramref name="conversionType"/> whose value is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToUInt16(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.UInt16"/> integer using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>An <see cref="T:System.UInt16"/> integer that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToUInt32(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.UInt32"/> using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>An <see cref="T:System.UInt32"/> that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ToUInt64(System.IFormatProvider)">
+            <summary>
+            Converts the <see cref="T:TcHmiSrv.Value"/> to an equivalent <see cref="T:System.UInt64"/> integer using the specified <see cref="T:System.IFormatProvider"/>.
+            </summary>
+            <param name="provider">An <see cref="T:System.IFormatProvider"/> that supplies culture-specific formatting information.</param>
+            <returns>An <see cref="T:System.UInt64"/> integer that is equivalent to the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.System#Collections#Generic#IEnumerable{System#Collections#Generic#KeyValuePair{System#String,TcHmiSrv#Value}}#GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1"/> that iterates through the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1"/> that iterates through the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.System#Collections#Generic#IEnumerable{TcHmiSrv#Value}#GetEnumerator">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerator`1"/> that iterates through the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <returns>An <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="P:TcHmiSrv.Value.System#Collections#Generic#IReadOnlyDictionary{System#String,TcHmiSrv#Value}#Keys">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the keys of the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Value.System#Collections#Generic#IReadOnlyDictionary{System#String,TcHmiSrv#Value}#Values">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.IEnumerable`1"/> containing the <see cref="T:TcHmiSrv.Value"/>s in the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.Binary">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Binary"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Binary"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Binary)~TcHmiSrv.Value">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Binary"/> class to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Binary"/> array to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.Value)~TcHmiSrv.ValueType">
+            <summary>
+            Converts an instance of the <see cref="T:TcHmiSrv.Value"/> class to the appropriate <see cref="T:TcHmiSrv.ValueType"/>.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.ValueType"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.op_Implicit(TcHmiSrv.ValueType)~TcHmiSrv.Value">
+            <summary>
+            Converts an <see cref="T:TcHmiSrv.ValueType"/> to the appropriate instance of the <see cref="T:TcHmiSrv.Value"/> class.
+            </summary>
+            <param name="value">The <see cref="T:TcHmiSrv.ValueType"/> to convert.</param>
+            <returns>A <see cref="T:TcHmiSrv.Value"/> that represents <paramref name="value"/>.</returns>
+        </member>
+        <member name="P:TcHmiSrv.Value.Keys">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the keys of the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Value.Values">
+            <summary>
+            Gets an <see cref="T:System.Collections.Generic.ICollection`1"/> containing the <see cref="T:TcHmiSrv.Value"/>s in the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Value.Item(System.String)">
+            <summary>
+            Gets or sets the <see cref="T:TcHmiSrv.Value"/> with the specified key.
+            </summary>
+            <param name="key">The key of the <see cref="T:TcHmiSrv.Value"/> to get or set.</param>
+            <returns>The <see cref="T:TcHmiSrv.Value"/> with the specified key.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.Add(System.String,TcHmiSrv.Value)">
+            <summary>
+            Adds a <see cref="T:TcHmiSrv.Value"/> with the specified key to the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="key">The key of the <see cref="T:TcHmiSrv.Value"/> to add.</param>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to add.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.Add(System.Collections.Generic.KeyValuePair{System.String,TcHmiSrv.Value})">
+            <summary>
+            Adds a <see cref="T:System.Collections.Generic.KeyValuePair`2"/> to the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="item">The <see cref="T:System.Collections.Generic.KeyValuePair`2"/> to add to the <see cref="T:TcHmiSrv.Value"/>.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.Contains(System.Collections.Generic.KeyValuePair{System.String,TcHmiSrv.Value})">
+            <summary>
+            Determines whether the <see cref="T:TcHmiSrv.Value"/> contains the specified <see cref="T:System.Collections.Generic.KeyValuePair`2"/>.
+            </summary>
+            <param name="item">The <see cref="T:System.Collections.Generic.KeyValuePair`2"/> to locate in the <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>true if <paramref name="item"/> is found in the <see cref="T:TcHmiSrv.Value"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.ContainsKey(System.String)">
+            <summary>
+            Determines whether the <see cref="T:TcHmiSrv.Value"/> contains a <see cref="T:TcHmiSrv.Value"/> with the specified key.
+            </summary>
+            <param name="key">The key to locate in the <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>true if the <see cref="T:TcHmiSrv.Value"/> contains a <see cref="T:TcHmiSrv.Value"/> with the specified key; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.CopyTo(System.Collections.Generic.KeyValuePair{System.String,TcHmiSrv.Value}[],System.Int32)">
+            <summary>
+            Copies the <see cref="T:System.Collections.Generic.KeyValuePair`2"/>s of the <see cref="T:TcHmiSrv.Value"/> to an <see cref="T:System.Array"/> starting at the specified <see cref="T:System.Array"/> index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the <see cref="T:System.Collections.Generic.KeyValuePair`2"/>s copied from the <see cref="T:TcHmiSrv.Value"/>. The <see cref="T:System.Array"/> must have zero-based indexing.</param>
+            <param name="arrayIndex">The zero-based index in <paramref name="array"/> at which copying begins.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.Remove(System.String)">
+            <summary>
+            Removes the <see cref="T:TcHmiSrv.Value"/> with the specified key from the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="key">The key of the <see cref="T:TcHmiSrv.Value"/> to remove.</param>
+            <returns>true if the <see cref="T:TcHmiSrv.Value"/> is successfully removed; otherwise, false. This method also returns false if key was not found in the original <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.Remove(System.Collections.Generic.KeyValuePair{System.String,TcHmiSrv.Value})">
+            <summary>
+            Removes the first occurrence of the specified <see cref="T:System.Collections.Generic.KeyValuePair`2"/> from the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="item">The <see cref="T:System.Collections.Generic.KeyValuePair`2"/> to remove from the <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>true if <paramref name="item"/> was successfully removed from the <see cref="T:TcHmiSrv.Value"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.TryGetValue(System.String,TcHmiSrv.Value@)">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> associated with the specified key.
+            </summary>
+            <param name="key">The key whose <see cref="T:TcHmiSrv.Value"/> to get.</param>
+            <param name="value">When this method returns, the <see cref="T:TcHmiSrv.Value"/> associated with the specified key, if the key is found; otherwise, the default value for the type of the <paramref name="value"/> parameter. This parameter is passed uninitialized.</param>
+            <returns>true if the <see cref="T:TcHmiSrv.Value"/> contains a <see cref="T:TcHmiSrv.Value"/> with the specified key; otherwise, false.</returns>
+        </member>
+        <member name="P:TcHmiSrv.Value.Count">
+            <summary>
+            Gets the number of the <see cref="T:TcHmiSrv.Value"/>s contained in the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Value.IsReadOnly">
+            <summary>
+            Gets a value that indicates whether the <see cref="T:TcHmiSrv.Value"/> is read-only.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.Value.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:TcHmiSrv.Value"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the <see cref="T:TcHmiSrv.Value"/> to get or set.</param>
+            <returns>The <see cref="T:TcHmiSrv.Value"/> at the specified index.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.Add(TcHmiSrv.Value)">
+            <summary>
+            Adds a <see cref="T:TcHmiSrv.Value"/> to the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Value"/> to add to the <see cref="T:TcHmiSrv.Value"/>.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.Clear">
+            <summary>
+            Removes all <see cref="T:TcHmiSrv.Value"/>s from the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.Value.Contains(TcHmiSrv.Value)">
+            <summary>
+            Determines whether the <see cref="T:TcHmiSrv.Value"/> contains the specified <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Value"/> to locate in the <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>true if <paramref name="item"/> is found in the <see cref="T:TcHmiSrv.Value"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.CopyTo(TcHmiSrv.Value[],System.Int32)">
+            <summary>
+            Copies the <see cref="T:TcHmiSrv.Value"/>s of the <see cref="T:TcHmiSrv.Value"/> to an <see cref="T:System.Array"/> starting at the specified <see cref="T:System.Array"/> index.
+            </summary>
+            <param name="array">The one-dimensional <see cref="T:System.Array"/> that is the destination of the <see cref="T:TcHmiSrv.Value"/>s copied from the <see cref="T:TcHmiSrv.Value"/>. The <see cref="T:System.Array"/> must have zero-based indexing.</param>
+            <param name="arrayIndex">The zero-based index in <paramref name="array"/> at which copying begins.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.IndexOf(TcHmiSrv.Value)">
+            <summary>
+            Determines the index of the specific <see cref="T:TcHmiSrv.Value"/> in the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Value"/> to locate in the <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>The index of <paramref name="item"/> if found in the <see cref="T:TcHmiSrv.Value"/>; otherwise, -1.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.Insert(System.Int32,TcHmiSrv.Value)">
+            <summary>
+            Inserts a <see cref="T:TcHmiSrv.Value"/> to the <see cref="T:TcHmiSrv.Value"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param>
+            <param name="item">The <see cref="T:TcHmiSrv.Value"/> to insert into the <see cref="T:TcHmiSrv.Value"/>.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.Remove(TcHmiSrv.Value)">
+            <summary>
+            Removes the first occurrence of the specified <see cref="T:TcHmiSrv.Value"/> from the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="item">The <see cref="T:TcHmiSrv.Value"/> to remove from the <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>true if <paramref name="item"/> was successfully removed from the <see cref="T:TcHmiSrv.Value"/>; otherwise, false. This method also returns false if <paramref name="item"/> is not found in the original <see cref="T:TcHmiSrv.Value"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.Value.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:TcHmiSrv.Value"/> at the specified index of the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="index">The zero-based index of the <see cref="T:TcHmiSrv.Value"/> to remove.</param>
+        </member>
+        <member name="M:TcHmiSrv.Value.RemoveRange(System.Int32,System.Int32)">
+            <summary>
+            Removes a range of <see cref="T:TcHmiSrv.Value"/>s from the <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="index">The zero-based starting index of the range of <see cref="T:TcHmiSrv.Value"/>s to remove.</param>
+            <param name="count">The number of <see cref="T:TcHmiSrv.Value"/>s to remove.</param>
+        </member>
+        <member name="M:TcHmiSrv.ValueIterator.Equals(TcHmiSrv.ValueIterator)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.ValueIterator"/> is equal to another <see cref="T:TcHmiSrv.ValueIterator"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.ValueIterator"/> to compare with this <see cref="T:TcHmiSrv.ValueIterator"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.ValueIterator"/> is equal to the other <see cref="T:TcHmiSrv.ValueIterator"/>; otherwise, false.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ValueVectorIterator.Equals(TcHmiSrv.ValueVectorIterator)">
+            <summary>
+            Indicates whether the current <see cref="T:TcHmiSrv.ValueVectorIterator"/> is equal to another <see cref="T:TcHmiSrv.ValueVectorIterator"/>.
+            </summary>
+            <param name="other">The <see cref="T:TcHmiSrv.ValueVectorIterator"/> to compare with this <see cref="T:TcHmiSrv.ValueVectorIterator"/>.</param>
+            <returns>true if the current <see cref="T:TcHmiSrv.ValueVectorIterator"/> is equal to the other <see cref="T:TcHmiSrv.ValueVectorIterator"/>; otherwise, false.</returns>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvExtHost">
+            <summary>
+            Provides a host to communicate with a TwinCAT HMI server.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvExtHost.unregister_listener(TcHmiSrv.ITcHmiSrvListener)">
+            <summary>
+            Unregisters an <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> at the server.
+            </summary>
+            <param name="handler">The <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> that should be unregistered.</param>
+        </member>
+        <member name="T:TcHmiSrv.ILocalizable">
+            <summary>
+            Provides an interface for a localizable object that contains a language variable and parameters.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.ILocalizable.Name">
+            <summary>
+            Contains the name of the language variable.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.ILocalizable.Domain">
+            <summary>
+            Gets the domain of the language variable. The language file of this domain will be used for localization.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.ILocalizable.Parameters">
+            <summary>
+            Gets the parameters of the localizable object. The names of the parameters must match the placeholders in the localization string.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.ILocalizable.Type">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.ValueType"/> of the localizable object that will be <see cref="F:TcHmiSrv.ValueType.ValueType_Message"/> or <see cref="F:TcHmiSrv.ValueType.ValueType_Alarm"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.ILocalizable.Severity">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Severity"/> of the localizable object.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.ITcHmiSrvExtHost">
+            <summary>
+            Provides an interface for a host to communicate with a TwinCAT HMI server.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.send(TcHmiSrv.Context,TcHmiSrv.Message)">
+            <summary>
+            Adds a <see cref="T:TcHmiSrv.Message"/>.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.Message"/> should be sent.</param>
+            <param name="msg">The <see cref="T:TcHmiSrv.Message"/> that will be sent to the server and all current event listeners.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if sending the <see cref="T:TcHmiSrv.Message"/> succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.send(TcHmiSrv.Context,TcHmiSrv.Event)">
+            <summary>
+            Adds or updates an <see cref="T:TcHmiSrv.Event"/>.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.Event"/> should be sent.</param>
+            <param name="evt">The <see cref="T:TcHmiSrv.Event"/> that will be sent to the server and all current event listeners.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if sending the <see cref="T:TcHmiSrv.Event"/> succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.send(TcHmiSrv.Context,TcHmiSrv.Message,TcHmiSrv.EventLifetime)">
+            <summary>
+            Adds a <see cref="T:TcHmiSrv.Message"/>.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.Message"/> should be sent.</param>
+            <param name="msg">The <see cref="T:TcHmiSrv.Message"/> that will be sent to the server and all current event listeners.</param>
+            <param name="lifetime">Specifies whether the <see cref="T:TcHmiSrv.Message"/> is stored persistently.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if sending the <see cref="T:TcHmiSrv.Message"/> succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.send(TcHmiSrv.Context,TcHmiSrv.Event,TcHmiSrv.EventLifetime)">
+            <summary>
+            Adds or updates an <see cref="T:TcHmiSrv.Event"/>.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.Event"/> should be sent.</param>
+            <param name="evt">The <see cref="T:TcHmiSrv.Event"/> that will be sent to the server and all current event listeners.</param>
+            <param name="lifetime">Specifies whether the <see cref="T:TcHmiSrv.Event"/> is stored persistently.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if sending the <see cref="T:TcHmiSrv.Event"/> succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.exec(TcHmiSrv.Context,TcHmiSrv.CommandGroup)">
+            <summary>
+            Executes <see cref="T:TcHmiSrv.Command"/>s inside any domain.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the commands should be executed.</param>
+            <param name="commands">A <see cref="T:TcHmiSrv.CommandGroup"/> containing a list of <see cref="T:TcHmiSrv.Command"/>s.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if executing the commands succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.exec(TcHmiSrv.Context,TcHmiSrv.Command)">
+            <summary>
+            Executes a single <see cref="T:TcHmiSrv.Command"/> in the domain of the specified <see cref="T:TcHmiSrv.Context"/>.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.Command"/> should be executed.</param>
+            <param name="cmd">The <see cref="T:TcHmiSrv.Command"/> to be executed.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if executing the <see cref="T:TcHmiSrv.Command"/> succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.localize(TcHmiSrv.Context,TcHmiSrv.ILocalizable)">
+            <summary>
+            Localizes an <see cref="T:TcHmiSrv.ILocalizable"/> object.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.ILocalizable"/> object should be localized.</param>
+            <param name="obj">The <see cref="T:TcHmiSrv.ILocalizable"/> object to localize.</param>
+            <returns>A <see cref="T:TcHmiSrv.String"/> containing the localized text.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.register_listener(TcHmiSrv.Context,TcHmiSrv.ITcHmiSrvListener)">
+            <summary>
+            Registers an <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> at the server.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> should be registered.</param>
+            <param name="handler">The <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> that should be registered.</param>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.register_listener(TcHmiSrv.Context,TcHmiSrv.ITcHmiSrvListener,TcHmiSrv.Value)">
+            <summary>
+            Registers an <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> at the server using the specified settings.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> should be registered.</param>
+            <param name="handler">The <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> that should be registered.</param>
+            <param name="settings">A <see cref="T:TcHmiSrv.Value"/> containing the settings that should be used at the registration.</param>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.unregister_listener(TcHmiSrv.Context,TcHmiSrv.ITcHmiSrvListener)">
+            <summary>
+            Unregisters an <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> at the server.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> should be unregistered.</param>
+            <param name="handler">The <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> that should be unregistered.</param>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.unregister_listener(TcHmiSrv.ITcHmiSrvListener)">
+            <summary>
+            Unregisters an <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> at the server.
+            </summary>
+            <param name="handler">The <see cref="T:TcHmiSrv.ITcHmiSrvListener"/> that should be unregistered.</param>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.notify_listener(TcHmiSrv.Context,TcHmiSrv.AlarmChangeType,TcHmiSrv.Alarm)">
+            <summary>
+            Sends a notification if an <see cref="T:TcHmiSrv.Alarm"/> type changed.
+            </summary>
+            <param name="ctx">The <see cref="T:TcHmiSrv.Context"/> under which the <see cref="T:TcHmiSrv.Alarm"/> changed.</param>
+            <param name="type">Contains the type of the change.</param>
+            <param name="alm">The <see cref="T:TcHmiSrv.Alarm"/> that has changed.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if sending the notification succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.set_config_value(TcHmiSrv.Context,System.String,TcHmiSrv.Value)">
+            <summary>
+            Adds an entry to a map or vector in the extension configuration or updates an existing configuration <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+            <param name="ctx">A <see cref="T:TcHmiSrv.Context"/> containing information about the user who tries to get a configuration <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="path">The path of the <see cref="T:TcHmiSrv.Value"/> to be set.</param>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to be set or nullptr to delete the configuration <see cref="T:TcHmiSrv.Value"/> at specified path.</param>
+            <returns><see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/> if setting the configuration <see cref="T:TcHmiSrv.Value"/> succeeded; otherwise, any <see cref="T:TcHmiSrv.ErrorValue"/> that best describes which error has occurred.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.get_config_value(TcHmiSrv.Context,System.String)">
+            <summary>
+            Gets the configuration <see cref="T:TcHmiSrv.Value"/> at the specified path from the server.
+            </summary>
+            <param name="ctx">A <see cref="T:TcHmiSrv.Context"/> containing information about the user who tries to get a configuration <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="path">The path of the requested <see cref="T:TcHmiSrv.Value"/>.</param>
+            <returns>The <see cref="T:TcHmiSrv.Value"/> at the specified path or a <see cref="T:TcHmiSrv.Value"/> containing <see cref="F:TcHmiSrv.ValueType.ValueType_Null"/>.</returns>
+        </member>
+        <member name="M:TcHmiSrv.ITcHmiSrvExtHost.reset_temporary_events(TcHmiSrv.Context)">
+            <summary>
+            Triggers a refresh of the list of events provided by an extension that implements the <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener"/>.
+            </summary>
+            <param name="ctx">A <see cref="T:TcHmiSrv.Context"/> containing information about the user who tries to refresh it and the domain of the extension that should be refreshed.</param>
+        </member>
+        <member name="T:TcHmiSrv.ITcHmiSrvListener">
+            <summary>
+            Provides an interface for a listener.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.ITcHmiSrvListener.Type">
+            <summary>
+            Gets the type of the <see cref="T:TcHmiSrv.ITcHmiSrvListener"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.IVersionable">
+            <summary>
+            Provides an interface for a versionable type.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.IVersionable.Version">
+            <summary>
+            Gets the current version number.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.EventChangeFlags">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener">
+            <summary>
+            Provides a listener that listens on provided <see cref="T:TcHmiSrv.Alarm"/>s.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirm"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitializeAlarmListEventHandler">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEvents"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEventsEventHandler">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirm">
+            <summary>
+            Called when an <see cref="T:TcHmiSrv.Alarm"/> is confirmed.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitializeAlarmList">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEvents">
+            <summary>
+            Called when the <see cref="T:TcHmiSrv.Event"/>s are listed once upon successful initialization.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEvents">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirm"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.Alarm)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="alarm">The confirmed <see cref="T:TcHmiSrv.Alarm"/>.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnConfirmEventArgs.Alarm">
+            <summary>
+            Gets the confirmed <see cref="T:TcHmiSrv.Alarm"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitializeAlarmListEventArgs">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitializeAlarmListEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitializeAlarmListEventArgs"/> class.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitializeAlarmListEventArgs.Context">
+            <summary>
+            Gets the current context.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEventsEventArgs">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEventsEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.Value)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEventsEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="events">The <see cref="T:TcHmiSrv.Value"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEventsEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnListEventsEventArgs.Events">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEvents"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.Value)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="events">The <see cref="T:TcHmiSrv.Value"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAlarmProviderListener.OnInitialListEventsEventArgs.Events">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAuthListener">
+            <summary>
+            Provides a listener to implement a custom authorization.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvAuthListener.OnLogin"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAuthListener.OnLogoutEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvAuthListener.OnLogout"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvAuthListener.OnLogoutEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvAuthListener.OnLogin">
+            <summary>
+            Called when a user tries to log in.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvAuthListener.OnLogout">
+            <summary>
+            Called when a user is logged out.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvAuthListener.OnLogin"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.Value)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="value">A <see cref="T:TcHmiSrv.Value"/> that describes the user that tries to log in according to the JSON schema for symbol 'Login' as described in 'TcHmiSrv.Config.json'.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAuthListener.OnLoginEventArgs.Value">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> that describes the user that tries to log in according to the JSON schema for symbol 'Login' as described in 'TcHmiSrv.Config.json'.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvAuthListener.OnLogoutEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvAuthListener.OnLogout"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvAuthListener.OnLogoutEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvAuthListener.OnLogoutEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvAuthListener.OnLogoutEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener">
+            <summary>
+            Provides a listener to interact with the configuration of the TwinCAT HMI server configuration.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventHandler">
+            <summary>
+            Represents a method that handles a <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeChange"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventHandler">
+            <summary>
+            Represents a method that handles a <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeDelete"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventHandler">
+            <summary>
+            Represents a method that handles a <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeRename"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.OnChange"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.OnDelete"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.OnRename"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs"/> that contain the event data.</param>
+            <returns></returns>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeChange">
+            <summary>
+            Called before a configuration <see cref="T:TcHmiSrv.Value"/> is changed.
+            <para>If the returned value does not equal <see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/>, the change will be aborted.</para>
+            <para>For complex data, this method is called for each element.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeDelete">
+            <summary>
+            Called before a configuration <see cref="T:TcHmiSrv.Value"/> is deleted.
+            <para>If the returned value does not equal <see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/>, the deletion will be aborted.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeRename">
+            <summary>
+            Called before a configuration <see cref="T:TcHmiSrv.Value"/> is renamed.
+            <para>If the returned value does not equal <see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/>, renaming will be aborted.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvConfigListener.OnChange">
+            <summary>
+            Called after a configuration <see cref="T:TcHmiSrv.Value"/> has been successfully changed.
+            <para>For complex data, this method is called for each element.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvConfigListener.OnDelete">
+            <summary>
+            Called after a configuration <see cref="T:TcHmiSrv.Value"/> has been deleted.
+            <para>For complex data, this method is called for each element.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvConfigListener.OnRename">
+            <summary>
+            Called after a configuration <see cref="T:TcHmiSrv.Value"/> has been renamed.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs">
+            <summary>
+            Provides data for a <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeChange"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.Value,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="path">The path of the <see cref="T:TcHmiSrv.Value"/> to change.</param>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to change.</param>
+            <param name="reference">The name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to change.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs.Path">
+            <summary>
+            Gets the path of the <see cref="T:TcHmiSrv.Value"/> to change.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs.Value">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> to change.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeChangeEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to change.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs">
+            <summary>
+            Provides data for a <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeDelete"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.Value,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="path">The path of the <see cref="T:TcHmiSrv.Value"/> to delete.</param>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to delete.</param>
+            <param name="reference">The name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to delete.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs.Path">
+            <summary>
+            Gets the path of the <see cref="T:TcHmiSrv.Value"/> to delete.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs.Value">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> to delete.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeDeleteEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to delete.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs">
+            <summary>
+            Provides data for a <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.BeforeRename"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs.#ctor(TcHmiSrv.Context,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="oldPath">The old path of the <see cref="T:TcHmiSrv.Value"/> to rename.</param>
+            <param name="newPath">The new path of the <see cref="T:TcHmiSrv.Value"/> to rename.</param>
+            <param name="reference">The name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to rename.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs.OldPath">
+            <summary>
+            Gets the old path of the <see cref="T:TcHmiSrv.Value"/> to rename.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs.NewPath">
+            <summary>
+            Gets the new path of the <see cref="T:TcHmiSrv.Value"/> to rename.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.BeforeRenameEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to rename.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.OnChange"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs.#ctor(TcHmiSrv.Context,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="path">The path of the changed <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="reference">The name of the JSON schema reference of the changed <see cref="T:TcHmiSrv.Value"/>.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs.Path">
+            <summary>
+            Gets the path of the changed <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnChangeEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the changed <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.OnDelete"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.Value,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="path">The path of the deleted <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="value">The deleted <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="reference">The name of the JSON schema reference of the deleted <see cref="T:TcHmiSrv.Value"/>.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs.Path">
+            <summary>
+            Gets the current path.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs.Value">
+            <summary>
+            Gets the current value.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnDeleteEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the deleted <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvConfigListener.OnRename"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs.#ctor(TcHmiSrv.Context,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="oldPath">The old path of the renamed <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="newPath">The new path of the renamed <see cref="T:TcHmiSrv.Value"/>.</param>
+            <param name="reference">The name of the JSON schema reference of the renamed <see cref="T:TcHmiSrv.Value"/>.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs.OldPath">
+            <summary>
+            Gets the old path of the renamed <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs.NewPath">
+            <summary>
+            Gets the new path of the renamed <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvConfigListener.OnRenameEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the renamed <see cref="T:TcHmiSrv.Value"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener">
+            <summary>
+            Provides a listener to interact with the event system of the TwinCAT HMI server.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvEventListener.OnChange"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvEventListener.OnReceive"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvEventListener.OnListEvents"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventHandler">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.FilterEventHandler">
+            <summary>
+            Not used anymore.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">An instance of the <see cref="T:System.EventArgs"/> class that contains the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvEventListener.OnChange">
+            <summary>
+            Called when an <see cref="T:TcHmiSrv.Event"/> is changed.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvEventListener.OnReceive">
+            <summary>
+            Called when an extension is loaded and it's initial list of <see cref="T:TcHmiSrv.Event"/>s is fetched.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvEventListener.OnListEvents">
+            <summary>
+            Called when the <see cref="T:TcHmiSrv.Event"/>s are listed.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvEventListener.OnRequest">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvEventListener.Filter">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvEventListener.OnChange"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.Event,TcHmiSrv.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="event">The changed <see cref="T:TcHmiSrv.Event"/>.</param>
+            <param name="extensionSessionId">Unique identifier of an extension that changes when the extension is reloaded. Empty if the extension that changed the event doesn't implement <see cref="T:TcHmiSrv.TcHmiSrvAlarmProviderListener"/>.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs.Event">
+            <summary>
+            Gets the changed <see cref="T:TcHmiSrv.Event"/>.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnChangeEventArgs.ExtensionSessionId">
+            <summary>
+            Gets the extension session identifier.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvEventListener.OnReceive"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.String,TcHmiSrv.Value)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="events">The <see cref="T:TcHmiSrv.Value"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s.</param>
+            <param name="extensionSessionId">Unique identifier of an extension that changes when the extension is reloaded.</param> 
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs.Events">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnReceiveEventArgs.ExtensionSessionId">
+            <summary>
+            Gets the extension session identifier.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvEventListener.OnListEvents"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.Command)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="command">The <see cref="T:TcHmiSrv.Command"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s in its read-value.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnListEventsEventArgs.Command">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Command"/> that contains the listed <see cref="T:TcHmiSrv.Event"/>s in its read-value.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs">
+            <summary>
+            Not used anymore.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.ILocalizable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="locale">The locale in BCP 47 representation.</param>
+            <param name="localizable">The <see cref="T:TcHmiSrv.ILocalizable"/> object to localize.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs.Locale">
+            <summary>
+            Gets the locale in BCP 47 representation.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs.Localizable">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.ILocalizable"/> object to localize.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventListener.OnRequestEventArgs.Localized">
+            <summary>
+            Gets the localized <see cref="T:TcHmiSrv.String"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventLocalizationListener">
+            <summary>
+            Provides a listener to interact with the event system of the TwinCAT HMI server.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequest"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequest">
+            <summary>
+            Called when a <see cref="T:System.String"/> cannot be localized using the language file of the TwinCAT HMI server extension.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequest"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.ILocalizable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="locale">The locale in BCP 47 representation.</param>
+            <param name="localizable">The <see cref="T:TcHmiSrv.ILocalizable"/> object to localize.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs.Locale">
+            <summary>
+            Gets the locale in BCP 47 representation.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs.Localizable">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.ILocalizable"/> object to localize.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvEventLocalizationListener.OnRequestEventArgs.Localized">
+            <summary>
+            Gets the localized <see cref="T:TcHmiSrv.String"/>.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvExportListener">
+            <summary>
+            Provides a listener to react on configuration exports and imports.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventHandler">
+            <summary>
+            Represents a method that handles a <see cref="E:TcHmiSrv.TcHmiSrvExportListener.BeforeExport"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventHandler">
+            <summary>
+            Represents a method that handles a <see cref="E:TcHmiSrv.TcHmiSrvExportListener.BeforeImport"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvExportListener.BeforeExport">
+            <summary>
+            Called before a configuration export.
+            <para>If the <see cref="P:TcHmiSrv.ResultPair.Result"/> of the returned value does not equal <see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/>, the configuration export will be aborted.</para>
+            <para>For complex data, this method is called for each element.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvExportListener.BeforeImport">
+            <summary>
+            Called before a configuration import.
+            <para>If the <see cref="P:TcHmiSrv.ResultPair.Result"/> of the returned value does not equal <see cref="F:TcHmiSrv.ErrorValue.HMI_SUCCESS"/>, the configuration import will be aborted.</para>
+            <para>For complex data, this method is called for each element.</para>
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs">
+            <summary>
+            Provides data for a <see cref="E:TcHmiSrv.TcHmiSrvExportListener.BeforeExport"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.Value,TcHmiSrv.Value,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="path">The path of the <see cref="T:TcHmiSrv.Value"/> to export.</param>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to export.</param>
+            <param name="root">The root <see cref="T:TcHmiSrv.Value"/> that contains the whole data to export.</param>
+            <param name="reference">The name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to export.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs.Path">
+            <summary>
+            Gets the path of the <see cref="T:TcHmiSrv.Value"/> to export.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs.Value">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> to export.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs.Root">
+            <summary>
+            Gets the root <see cref="T:TcHmiSrv.Value"/> that contains the whole data to export.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeExportEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to export.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs">
+            <summary>
+            Provides data for a <see cref="E:TcHmiSrv.TcHmiSrvExportListener.BeforeImport"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs.#ctor(TcHmiSrv.Context,System.String,TcHmiSrv.Value,TcHmiSrv.Value,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="path">The path of the <see cref="T:TcHmiSrv.Value"/> to import.</param>
+            <param name="value">The <see cref="T:TcHmiSrv.Value"/> to import.</param>
+            <param name="root">The root <see cref="T:TcHmiSrv.Value"/> that contains the whole data to import.</param>
+            <param name="reference">The name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to import.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs.Path">
+            <summary>
+            Gets the path of the <see cref="T:TcHmiSrv.Value"/> to import.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs.Value">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Value"/> to import.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs.Root">
+            <summary>
+            Gets the root <see cref="T:TcHmiSrv.Value"/> that contains the whole data to import.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvExportListener.BeforeImportEventArgs.Reference">
+            <summary>
+            Gets the name of the JSON schema reference of the <see cref="T:TcHmiSrv.Value"/> to import.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvRequestListener">
+            <summary>
+            Provides a listener to invoke read-write requests and subscriptions.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventHandler">
+            <summary>
+            Represents the method that handles an <see cref="E:TcHmiSrv.TcHmiSrvRequestListener.OnRequest"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvRequestListener.OnRequest">
+            <summary>
+            Called when a client requests a symbol from the domain of the TwinCAT HMI server extension.
+            <para>This event will be called multiple times if <see cref="P:TcHmiSrv.Context.RequestType"/> equals <see cref="F:TcHmiSrv.RequestType.RequestType_Subscription"/>.</para>
+            In a subscription the returned data will only be sent to clients if either the read value or the return codes changed.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvRequestListener.OnRequest"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventArgs.#ctor(TcHmiSrv.Context,TcHmiSrv.CommandGroup)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+            <param name="commands">The <see cref="T:TcHmiSrv.Command"/>s to invoke.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvRequestListener.OnRequestEventArgs.Commands">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Command"/>s to invoke.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener">
+            <summary>
+            Provides a listener to observe the connections of the TwinCAT HMI server.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnLoginEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnLogin"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnLoginEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnLogoutEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnLogout"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnLogoutEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocketEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocket"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocketEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocketEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocket"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocketEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvSessionListener.OnLogin">
+            <summary>
+            Called when a user is logged in.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvSessionListener.OnLogout">
+            <summary>
+            Called when a user is logged out.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocket">
+            <summary>
+            Called when a new WebSocket connection is created.
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocket">
+            <summary>
+            Called when an existing WebSocket connection is closed.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnLoginEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnLogin"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvSessionListener.OnLoginEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnLoginEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvSessionListener.OnLoginEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnLogoutEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnLogout"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvSessionListener.OnLogoutEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnLogoutEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvSessionListener.OnLogoutEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocketEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocket"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocketEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocketEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvSessionListener.OnCreateWebsocketEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocketEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocket"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocketEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocketEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvSessionListener.OnCloseWebsocketEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvShutdownListener">
+            <summary>
+            Provides a listener to get notified when the TwinCAT HMI server is shutting down.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdownEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdown"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdownEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdown">
+            <summary>
+            Called when the TwinCAT HMI server is shutting down.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdownEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdown"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdownEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdownEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvShutdownListener.OnShutdownEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSubscriptionListener">
+            <summary>
+            Provides a listener to get notified when a client opens or closes a subscription.
+            <para>If this listener is not registered at the TwinCAT HMI server, subscriptions will just call the <see cref="E:TcHmiSrv.TcHmiSrvRequestListener.OnRequest"/> event.</para>
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribeEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribe"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribeEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribeEventHandler">
+            <summary>
+            Represents a method that handles an <see cref="E:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribe"/> event.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribeEventArgs"/> that contain the event data.</param>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribe">
+            <summary>
+            Called when a client opens a new subscription.
+            <para>The subscription will call the <see cref="E:TcHmiSrv.TcHmiSrvRequestListener.OnRequest"/> once per specified interval.</para>
+            </summary>
+        </member>
+        <member name="E:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribe">
+            <summary>
+            Called when a client closes a subscription.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribeEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribe"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribeEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribeEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvSubscriptionListener.OnSubscribeEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+        <member name="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribeEventArgs">
+            <summary>
+            Provides data for an <see cref="E:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribe"/> event.
+            </summary>
+        </member>
+        <member name="M:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribeEventArgs.#ctor(TcHmiSrv.Context)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribeEventArgs"/> class.
+            </summary>
+            <param name="context">The <see cref="T:TcHmiSrv.Context"/> of the event.</param>
+        </member>
+        <member name="P:TcHmiSrv.TcHmiSrvSubscriptionListener.OnUnsubscribeEventArgs.Context">
+            <summary>
+            Gets the <see cref="T:TcHmiSrv.Context"/> of the event.
+            </summary>
+        </member>
+    </members>
+</doc>

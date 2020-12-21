@@ -1,0 +1,1 @@
+var TcHmi;!function(n){let t;!function(n){let t;!function(n){n.Concatenate=function(...n){let t,e="";for(let c=0,o=n.length;c<o;c++)t=void 0===n[c]?"undefined":null===n[c]?"null":n[c].toString(),e+=t;return e}}(t=n.Beckhoff||(n.Beckhoff={})),n.registerFunctionEx("Concatenate","TcHmi.Functions.Beckhoff",t.Concatenate)}(t=n.Functions||(n.Functions={}))}(TcHmi||(TcHmi={}));

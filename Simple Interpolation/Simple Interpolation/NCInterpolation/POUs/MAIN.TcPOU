@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.0.36">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.5">
   <POU Name="MAIN" Id="{bc7d6dee-843b-4570-8698-e246804a9242}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -48,7 +48,16 @@ END_VAR
 	ELSE
 		bStart := TRUE;
 	END_IF
-END_CASE]]></ST>
+END_CASE
+
+
+P_UML_Grafcet_Sequence();]]></ST>
     </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="3" Count="35" />
+      <LineId Id="2" Count="0" />
+      <LineId Id="49" Count="1" />
+      <LineId Id="48" Count="0" />
+    </LineIds>
   </POU>
 </TcPlcObject>

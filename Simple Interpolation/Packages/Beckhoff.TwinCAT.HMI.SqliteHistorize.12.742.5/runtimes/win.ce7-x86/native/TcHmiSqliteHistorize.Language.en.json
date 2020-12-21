@@ -1,0 +1,67 @@
+{
+  "locale": "en",
+  "localizedText": {
+    "VERSION": "Version",
+
+    "HISTORIZEDSYMBOL": "Historized symbols",
+    "descHistorizedSymbol": "Symbol",
+    "TITLE_HISTORIZE_SYMBOL": "Linked server symbol",
+    "SERVERSYMBOL": "Linked server symbol",
+    "ENUM_SYNCHRONOUS_EXTRA_PERSIST": "Synchronous extra, journal mode persist",
+    "ENUM_SYNCHRONOUS_FULL_PERSIST": "Synchronous full, journal mode persist",
+    "ENUM_SYNCHRONOUS_FULL_MEMORY": "Synchronous full, journal mode memory",
+    "ENUM_SYNCHRONOUS_NORMAL_PERSIST": "Synchronous normal, journal mode persist",
+    "ENUM_SYNCHRONOUS_OFF_PERSIST": "Synchronous off, journal mode persist",
+    "ENUM_SYNCHRONOUS_OFF_MEMORY": "Synchronous off, journal mode memory",
+
+
+    "CATEGORY_DEFAULT": "General",
+    "CATEGORY_ADVANCED": "Advanced",
+
+    "MSG_CFG_NOT_FOUND": "Config value for {0} not found",
+    "MSG_TABLE_CREATE": "Failed to create table {0}",
+    "MSG_SUBSCIPTION_ERROR": "Subscription error. Error-Code: {0}",
+
+    "MSG_UNIQUE_INDEX_CREATE": "Create unique index for table {0} failed",
+    "MSG_EMPTY_SYMBOL": "Empty symbol in command",
+    "MSG_INSERT_FAILED": "Insert dataset to table {0} failed",
+    "MSG_INSERT_SYMBOL_FAILED": "Insert symbol {0} to table {1} failed",
+    "MSG_UPDATE_FAILED": "Updating table {0} failed",
+    "MSG_DELETE_FAILED": "Delete recordings of symbol {0} failed",
+    "MSG_RECORDING_PAUSED": "Recording paused while finishing backup",
+
+    "MSG_DATABASE_OPEN": "Opening the database failed with error {0}",
+    "MSG_HISTORIZE_START": "Starting to log symbol {0} every {1} ms with max-entries: {2}",
+    "MSG_HISTORIZE_CALL_FAILED": "Calling Historize-Extension failed",
+    "MSG_HISTORIZE_FAILED": "Historization of symbol {0} ended with Error-Code: {1}",
+    "MSG_HISTORIZE_FINISHED": "Historization of symbol {0} every {1} ms with max-entries: {2} ended",
+    "MSG_SOURCE_ERROR": "Error: symbol {0}, Error-Code: {1}",
+    "MSG_EMPTY_READVALUE": "Symbol {0} has no data",
+    "MSG_DELETING_BACKUP_FAILED": "Deleting database failed, insufficient access",
+    "MSG_BACKUP_FAILED": "Backup failed with Error-Code: {1}",
+    "MSG_VACUUM_ERROR": "Optimizing database failed",
+    "MSG_VACUUM_START": "Optimizing database started...",
+    "MSG_VACUUM_DONE": "Optimizing database done",
+
+    "historizedSymbolList": "Historized symbols",
+    "maxEntries": "Maximum number of entries",
+    "interval": "Interval time",
+    "recordingEnabled": "Recording enabled",
+    "rowLimit": "Row limit for filter",
+    "mode": "Mode",
+    "descMode": "Synchronous off and Memory journaling mode can corrupt the database",
+    "inMemory": "In memory database",
+    "descInMemory": "Active option will save to volatile RAM. Server restart is required",
+    "enableBackup": "Enable database backups",
+    "maxBackups": "Maximal amount of database backups",
+    "database": "Database",
+    "sizeInBytes": "Size",
+    "numEntries": "Total number of entries",
+    "descNumEntries": "Including min, max and average values",
+    "numEntriesLifetime": "Entries since the creation of the database",
+    "vacuumOnStartup": "Vacuum at start",
+    "descVacuumOnStartup": "Tries to reduce database size. This might take a while on big databases",
+    "commitInterval": "Commit interval",
+    "descCommitInterval": "The time between writing each transaction into the database."
+  }
+}

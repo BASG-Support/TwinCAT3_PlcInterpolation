@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "RUNTIMES": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "configDescription": "DESC_RUNTIME",
+        "properties": {
+          "PORT": {
+            "type": "integer",
+            "minimum": 0,
+            "options": [
+              {
+                "label": "Port_851 (851)",
+                "value": 851
+              }
+            ]
+          },
+          "NETID": {
+            "type": "string",
+            "format": "amsnetid",
+            "optionMethod": {
+              "symbol": "ADS.ListRoutes"
+            }
+          },
+          "ENABLED": {
+            "type": "boolean"
+          },
+          "STREAM_SERVER_PORT": {
+            "type": "integer",
+            "configDescription": "DESC_RUNTIME_STREAMPORT"
+          }
+        },
+        "additionalProperties": false,
+        "required": [ "PORT", "NETID", "ENABLED", "STREAM_SERVER_PORT" ]
+      },
+      "default": {
+        "PLC1": {
+          "PORT": 851,
+          "NETID": "127.0.0.1.1.1",
+          "ENABLED": true,
+          "STREAM_SERVER_PORT": -1
+        }
+      },
+      "defaultConfigurable": true
+    }
+  },
+  "required": [ "RUNTIMES" ],
+  "type": "object",
+  "additionalProperties": false
+}

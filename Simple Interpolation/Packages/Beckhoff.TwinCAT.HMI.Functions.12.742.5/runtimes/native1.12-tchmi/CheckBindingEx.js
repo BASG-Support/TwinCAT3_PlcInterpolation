@@ -1,0 +1,1 @@
+var TcHmi;!function(n){let i;!function(i){let t;!function(i){i.CheckBindingEx=function(i,t,c){if(!c)return!1;let e=n.Binding.resolveEx(t,i);return!(!e||e.toString()!==c.getExpression().toString())}}(t=i.Beckhoff||(i.Beckhoff={})),i.registerFunctionEx("CheckBindingEx","TcHmi.Functions.Beckhoff",t.CheckBindingEx)}(i=n.Functions||(n.Functions={}))}(TcHmi||(TcHmi={}));

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4018.0">
+<?xml version="1.0"?>
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4024.11">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -27,7 +27,7 @@
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{3B4978B1-9ADE-48F4-B2A7-1323BC4A0651}" Namespace="MC" TcBaseType="true">NCENCODERSTRUCT_IN2</Name>
+			<Name GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC" TcBaseType="true">NCENCODERSTRUCT_IN2B</Name>
 			<BitSize>320</BitSize>
 			<SubItem>
 				<Name>nDataIn1</Name>
@@ -62,12 +62,10 @@
 			<SubItem>
 				<Name>nState4</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<Comment>
-					<![CDATA[Encoder Status 4 (automatically linked):
+				<Comment><![CDATA[Encoder Status 4 (automatically linked):
 0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
 0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-]]>
-				</Comment>
+]]></Comment>
 				<BitSize>8</BitSize>
 				<BitOffs>88</BitOffs>
 			</SubItem>
@@ -124,6 +122,14 @@
 				<Type GUID="{18071995-0000-0000-0000-000000000009}">DINT</Type>
 				<BitSize>32</BitSize>
 				<BitOffs>256</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>nDataIn7</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000035}">UINTARR2</Type>
+				<Comment><![CDATA[Drive Velocity Actual Value
+]]></Comment>
+				<BitSize>32</BitSize>
+				<BitOffs>288</BitOffs>
 			</SubItem>
 			<Relations>
 				<Relation>
@@ -266,15 +272,13 @@
 			<SubItem>
 				<Name>nState4</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<Comment>
-					<![CDATA[Drive Status 4 (automatically linked):
+				<Comment><![CDATA[Drive Status 4 (automatically linked):
 0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
 0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
 
 Drive Status 4 (manually linked):
 0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
-]]>
-				</Comment>
+]]></Comment>
 				<BitSize>8</BitSize>
 				<BitOffs>88</BitOffs>
 			</SubItem>
@@ -323,6 +327,8 @@ Drive Status 4 (manually linked):
 			<SubItem>
 				<Name>nState8</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
+				<Comment><![CDATA[Digital Inputs 1..8
+]]></Comment>
 				<BitSize>8</BitSize>
 				<BitOffs>248</BitOffs>
 			</SubItem>
@@ -482,8 +488,14 @@ Drive Status 4 (manually linked):
 				<BitSize>1</BitSize>
 				<BitOffs>31</BitOffs>
 			</SubItem>
-			<Format>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
 				<Printf>0x%08x</Printf>
+			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
 			</Format>
 		</DataType>
 		<DataType>
@@ -610,7 +622,7 @@ Drive Status 4 (manually linked):
 			</Relations>
 		</DataType>
 		<DataType>
-			<Name GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
+			<Name GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_STATE</Name>
 			<BitSize>32</BitSize>
 			<SubItem>
 				<Name>Operational</Name>
@@ -721,6 +733,12 @@ Drive Status 4 (manually linked):
 				<BitOffs>17</BitOffs>
 			</SubItem>
 			<SubItem>
+				<Name>IsDriveLimitActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>18</BitOffs>
+			</SubItem>
+			<SubItem>
 				<Name>ContinuousMotion</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
 				<BitSize>1</BitSize>
@@ -798,9 +816,20 @@ Drive Status 4 (manually linked):
 				<BitSize>1</BitSize>
 				<BitOffs>31</BitOffs>
 			</SubItem>
-			<Format>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
 				<Printf>0x%08x</Printf>
 			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
+			</Format>
+			<Relations>
+				<Relation Priority="100">
+					<Type>{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}</Type>
+				</Relation>
+			</Relations>
 		</DataType>
 		<DataType>
 			<Name GUID="{6EF49753-C72C-4F50-AA44-3C7498E76CFE}" Namespace="MC" TcBaseType="true" HideType="true" IecDeclaration="DWORD;">NCTOPLC_AXIS_REF_OPMODE</Name>
@@ -917,8 +946,14 @@ Drive Status 4 (manually linked):
 				<BitSize>1</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
-			<Format>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
 				<Printf>0x%08x</Printf>
+			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
 			</Format>
 		</DataType>
 		<DataType>
@@ -936,25 +971,65 @@ Drive Status 4 (manually linked):
 				<BitSize>32</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
-			<Format>
+			<Format Name="Short">
+				<Printf>%08x</Printf>
+			</Format>
+			<Format Name="Cpp">
 				<Printf>0x%08x</Printf>
+			</Format>
+			<Format Name="IEC">
+				<Printf>16#%08X</Printf>
 			</Format>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-00000000003C}" TcBaseType="true" HideType="true">USINTARR8</Name>
-			<BitSize>64</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000002}">USINT</BaseType>
+			<Name GUID="{BA9D9D0F-1A4A-4A27-A19F-3032626A8491}" Namespace="MC" TcBaseType="true" HideType="true">NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE</Name>
+			<BitSize>8</BitSize>
+			<SubItem>
+				<Name>CamActivationPending</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>0</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamDeactivationPending</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>1</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamActive</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>2</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamDataQueued</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>6</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>CamScalingPending</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000010}">BIT</Type>
+				<BitSize>1</BitSize>
+				<BitOffs>7</BitOffs>
+			</SubItem>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000000000039}" TcBaseType="true" HideType="true">UINTARR8</Name>
+			<BitSize>128</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000005}">UINT</BaseType>
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>8</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
+			<Name GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC" TcBaseType="true">NCTOPLC_AXIS_REF</Name>
 			<BitSize>2048</BitSize>
 			<SubItem>
 				<Name>StateDWord</Name>
-				<Type GUID="{4C3FC5AC-D5AA-44C6-AC5A-159774BA0F6D}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
+				<Type GUID="{CBC83B73-B816-4597-A9E5-2B03263CA131}" Namespace="MC">NCTOPLC_AXIS_REF_STATE</Type>
 				<BitSize>32</BitSize>
 				<BitOffs>0</BitOffs>
 			</SubItem>
@@ -967,8 +1042,7 @@ Drive Status 4 (manually linked):
 			<SubItem>
 				<Name>AxisState</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment>
-					<![CDATA[Present State Of The Axis Movement (continuous axis):
+				<Comment><![CDATA[Present State Of The Axis Movement (continuous axis):
 0  = INACTIVE:		axis has no job
 1  = RUNNING:		axis is executing a motion job
 2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
@@ -982,8 +1056,7 @@ Slaves only:
 External Setpoint Generation:
 41 = EXTSETGEN_MODE1:	external setpoint generation active
 42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-				</Comment>
+]]></Comment>
 				<BitSize>32</BitSize>
 				<BitOffs>64</BitOffs>
 			</SubItem>
@@ -996,8 +1069,7 @@ External Setpoint Generation:
 			<SubItem>
 				<Name>HomingState</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment>
-					<![CDATA[Axis Homing Status:
+				<Comment><![CDATA[Axis Homing Status:
 0: idle
 1: start homing
 2: searching home switch
@@ -1005,22 +1077,19 @@ External Setpoint Generation:
 4: moving off home switch
 5: searching sync pulse
 6: stopping after homing
-]]>
-				</Comment>
+]]></Comment>
 				<BitSize>32</BitSize>
 				<BitOffs>128</BitOffs>
 			</SubItem>
 			<SubItem>
 				<Name>CoupleState</Name>
 				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<Comment>
-					<![CDATA[Axis Coupling Status:
+				<Comment><![CDATA[Axis Coupling Status:
 0: axis is a single axis (not coupled)
 1: axis is a master axis
 2: axis is master and slave
 3: axis is a slave axis
-]]>
-				</Comment>
+]]></Comment>
 				<BitSize>32</BitSize>
 				<BitOffs>160</BitOffs>
 			</SubItem>
@@ -1182,21 +1251,19 @@ External Setpoint Generation:
 			</SubItem>
 			<SubItem>
 				<Name>CamCouplingState</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000003C}">USINTARR8</Type>
+				<Type GUID="{BA9D9D0F-1A4A-4A27-A19F-3032626A8491}" Namespace="MC">NCTOPLC_AXIS_REF_CAMCOUPLINGSTATE</Type>
+				<ArrayInfo>
+					<LBound>0</LBound>
+					<Elements>8</Elements>
+				</ArrayInfo>
 				<BitSize>64</BitSize>
 				<BitOffs>1344</BitOffs>
 			</SubItem>
 			<SubItem>
 				<Name>CamCouplingTableID</Name>
-				<Type GUID="{18071995-0000-0000-0000-00000000003C}">USINTARR8</Type>
-				<BitSize>64</BitSize>
+				<Type GUID="{18071995-0000-0000-0000-000000000039}">UINTARR8</Type>
+				<BitSize>128</BitSize>
 				<BitOffs>1408</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>DcTimeStamp</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
-				<BitSize>32</BitSize>
-				<BitOffs>1472</BitOffs>
 			</SubItem>
 			<SubItem>
 				<Name>ActTorqueDerivative</Name>
@@ -1211,6 +1278,18 @@ External Setpoint Generation:
 				<BitOffs>1600</BitOffs>
 			</SubItem>
 			<SubItem>
+				<Name>AbsPhasingPos</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1664</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>TorqueOffset</Name>
+				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
+				<BitSize>64</BitSize>
+				<BitOffs>1728</BitOffs>
+			</SubItem>
+			<SubItem>
 				<Name>ActPosWithoutPosCorrection</Name>
 				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
 				<BitSize>64</BitSize>
@@ -1221,6 +1300,12 @@ External Setpoint Generation:
 				<Type GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</Type>
 				<BitSize>64</BitSize>
 				<BitOffs>1856</BitOffs>
+			</SubItem>
+			<SubItem>
+				<Name>DcTimeStamp</Name>
+				<Type GUID="{18071995-0000-0000-0000-000000000008}">UDINT</Type>
+				<BitSize>32</BitSize>
+				<BitOffs>1920</BitOffs>
 			</SubItem>
 			<Properties>
 				<Property>
@@ -1242,10 +1327,16 @@ External Setpoint Generation:
 					<Type GUID="{F794B740-82D7-4637-848E-4F74A711D038}">NCAXLESTRUCT_TOPLC4</Type>
 				</Relation>
 				<Relation Priority="100">
-					<Type GUID="{40BD39B0-C3EA-4F74-9F4F-5F1982786F7C}"/>
+					<Type GUID="{40BD39B0-C3EA-4F74-9F4F-5F1982786F7C}"></Type>
 				</Relation>
 				<Relation Priority="100">
-					<Type GUID="{40BD39B2-C3EA-4F74-9F4F-5F1982786F7C}"/>
+					<Type GUID="{40BD39B2-C3EA-4F74-9F4F-5F1982786F7C}"></Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}"></Type>
+				</Relation>
+				<Relation Priority="100">
+					<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}"></Type>
 				</Relation>
 			</Relations>
 		</DataType>
@@ -1630,7 +1721,7 @@ External Setpoint Generation:
 			</SubItem>
 			<Relations>
 				<Relation Priority="100">
-					<Type GUID="{FBAD2F64-68D5-4C75-B9FC-E1AF58AFD97C}"/>
+					<Type GUID="{FBAD2F64-68D5-4C75-B9FC-E1AF58AFD97C}"></Type>
 					<MapEntry>
 						<BitSize>704</BitSize>
 					</MapEntry>
@@ -1642,6 +1733,87 @@ External Setpoint Generation:
 				</Relation>
 			</Relations>
 		</DataType>
+		<DataType>
+			<Name GUID="{45D9D182-C252-216C-9BD4-57E7AD7AF14A}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..1] OF MC.NCTOPLC_NCICHANNEL_REF</Name>
+			<BitSize>1280</BitSize>
+			<BaseType GUID="{56354211-98EF-4057-9322-975DEAD0E29D}" Namespace="MC">NCTOPLC_NCICHANNEL_REF</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{5BADCFB9-BDED-2900-AEEF-46EFF514B76F}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..1] OF MC.PLCTONC_NCICHANNEL_REF</Name>
+			<BitSize>1024</BitSize>
+			<BaseType GUID="{48415C2A-E750-483B-A619-8655B2BEA4B8}" Namespace="MC">PLCTONC_NCICHANNEL_REF</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000001}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..0] OF BIT</Name>
+			<BitSize>1</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..2] OF BIT</Name>
+			<BitSize>3</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>3</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..3] OF BIT</Name>
+			<BitSize>4</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-000300000001}" IecBaseType="true" AutoDeleteType="true">ARRAY [0..0] OF BYTE</Name>
+			<BitSize>8</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000001}">BYTE</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>1</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000005}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..4] OF BIT</Name>
+			<BitSize>5</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>5</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000006}" IecBaseType="true" BitType="true" AutoDeleteType="true">ARRAY [0..5] OF BIT</Name>
+			<BitSize>6</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>6</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000007}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..6] OF BIT</Name>
+			<BitSize>7</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>7</Elements>
+			</ArrayInfo>
+		</DataType>
 	</DataTypes>
 	<ImageDatas>
 		<ImageData Id="1000">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c000bfff00bfffc0c0c0808080c0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080c0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
@@ -1649,8 +1821,11 @@ External Setpoint Generation:
 		<ImageData Id="1002">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ff000000000000ff00ffff00ffff00ff808080808080808080808080808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c000ffffc0c0c000ffff808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff000000ff00ffff00ff000000ff00ffff00ffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ffff00ff000000000000ff00ffff00ffff00ffc0c0c0ff0000c0c0c0ff0000808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c00000ffc0c0c00000ff808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0000000c0c0c0000000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0008000c0c0c0008000808080ff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0c0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ff</ImageData>
 		<ImageData Id="1003">424dd6020000000000003600000028000000100000000e0000000100180000000000a0020000c40e0000c40e00000000000000000000ff00ffff00ffff00ffff00ffff00ffff00ff808080808080808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffff00ffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff007fff007fff007fff007fff007fff007fffc0c0c0c0c0c0808080ff00ffff00ffff00ffff00ffff00ffff00ffff00ff</ImageData>
 	</ImageDatas>
-	<Project ProjectGUID="{4DE537F4-EC86-49D4-B457-69DAF56DAEF0}" Target64Bit="true">
+	<Project ProjectGUID="{4DE537F4-EC86-49D4-B457-69DAF56DAEF0}" Target64Bit="true" ShowHideConfigurations="#x106">
 		<System>
+			<Settings MaxCpus="8" NonWinCpus="1">
+				<Cpu CpuId="7"/>
+			</Settings>
 			<Tasks>
 				<Task Id="5" Priority="20" CycleTime="100000" AmsPort="350">
 					<Name>PlcTask</Name>
@@ -1674,38 +1849,29 @@ External Setpoint Generation:
 				<SvbTask Priority="9" CycleTime="100000" AmsPort="511">
 					<Name>NC-Task 1 SVB</Name>
 				</SvbTask>
-				<Axis CreateSymbols="true" AxisType="1" Id="2">
-					<Name>FaulHaber_X</Name>
+				<AxisFolder Name="R1_Cartesian Portal"/>
+				<Axis Id="1" CreateSymbols="true" AxisType="1" AxisFolder="R1_Cartesian Portal" GroupId="4">
+					<Name>R1_Axis01_X1</Name>
 					<AxisPara>
-						<General UnitName="°"/>
 						<Dynamic Acceleration="1925.33" Deceleration="1925.33" Jerk="187.597" DelayTime="0.015"/>
 						<Velo Maximum="38000"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
-					<Encoder Name="Enc" EncType="19">
-						<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="3000" MaxCount="#xffffffff">
+					<Encoder Name="Enc" EncType="1">
+						<EncPara ScaleFactorNumerator="360" ScaleFactorDenominator="3000">
 							<Inc RefSoftSyncMask="#x0000ffff"/>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
 							<Var>
 								<Name>In</Name>
-								<Type GUID="{3B4978B1-9ADE-48F4-B2A7-1323BC4A0651}" Namespace="MC">NCENCODERSTRUCT_IN2</Type>
+								<Type GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC">NCENCODERSTRUCT_IN2B</Type>
 								<BitOffs>1024</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn2</Name>
-								</SubVar>
-								<SubVar>
-									<Name>nState4</Name>
-									<Comment>
-										<![CDATA[Encoder Status 4 (automatically linked):
-0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-]]>
-									</Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn3</Name>
@@ -1748,9 +1914,9 @@ External Setpoint Generation:
 							</Var>
 						</Vars>
 					</Encoder>
-					<Drive Name="Drive" DrvType="16">
-						<DrvPara MaxCount="#xffffffff">
-							<Analog VeloReferenz="42000"/>
+					<Drive Name="Drive" DrvType="5">
+						<DrvPara>
+							<Analog VeloReferenz="42000" TorqueSetpointScale="10"/>
 							<TimeComp TaskDelayCycles="1"/>
 						</DrvPara>
 						<Vars VarGrpType="1">
@@ -1764,18 +1930,6 @@ External Setpoint Generation:
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn2</Name>
-								</SubVar>
-								<SubVar>
-									<Name>nState4</Name>
-									<Comment>
-										<![CDATA[Drive Status 4 (automatically linked):
-0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-
-Drive Status 4 (manually linked):
-0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
-]]>
-									</Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn3</Name>
@@ -1802,6 +1956,22 @@ Drive Status 4 (manually linked):
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut2</Name>
+								</SubVar>
+								<SubVar>
+									<Name>nCtrl2</Name>
+									<Comment><![CDATA[Digital Outputs Setpoint Generator:
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]></Comment>
+								</SubVar>
+								<SubVar>
+									<Name>nCtrl3</Name>
+									<Comment><![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]></Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut3</Name>
@@ -1835,59 +2005,13 @@ Drive Status 4 (manually linked):
 						<Name>Outputs</Name>
 						<Var>
 							<Name>ToPlc</Name>
-							<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 					</Vars>
 				</Axis>
-				<Axis CreateSymbols="true" AxisType="1" Id="4">
-					<Name>Stepper</Name>
+				<Axis Id="3" CreateSymbols="true" AxisType="1" AxisFolder="R1_Cartesian Portal" GroupId="1">
+					<Name>R1_Axis03_Y</Name>
 					<AxisPara>
-						<General UnitName="°"/>
 						<Dynamic Acceleration="4600" Deceleration="4600" Jerk="21160" DelayTime="0.015"/>
 						<Velo Maximum="3600"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -1900,22 +2024,13 @@ External Setpoint Generation:
 							<Name>Inputs</Name>
 							<Var>
 								<Name>In</Name>
-								<Type GUID="{3B4978B1-9ADE-48F4-B2A7-1323BC4A0651}" Namespace="MC">NCENCODERSTRUCT_IN2</Type>
+								<Type GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC">NCENCODERSTRUCT_IN2B</Type>
 								<BitOffs>2688</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn2</Name>
-								</SubVar>
-								<SubVar>
-									<Name>nState4</Name>
-									<Comment>
-										<![CDATA[Encoder Status 4 (automatically linked):
-0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-]]>
-									</Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn3</Name>
@@ -1975,18 +2090,6 @@ External Setpoint Generation:
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn2</Name>
 								</SubVar>
-								<SubVar>
-									<Name>nState4</Name>
-									<Comment>
-										<![CDATA[Drive Status 4 (automatically linked):
-0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-
-Drive Status 4 (manually linked):
-0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
-]]>
-									</Comment>
-								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn3</Name>
 								</SubVar>
@@ -2015,23 +2118,19 @@ Drive Status 4 (manually linked):
 								</SubVar>
 								<SubVar>
 									<Name>nCtrl2</Name>
-									<Comment>
-										<![CDATA[Digital Outputs Setpoint Generator:
+									<Comment><![CDATA[Digital Outputs Setpoint Generator:
 0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
 0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
 0x80 (1000 0000) = Stop
-]]>
-									</Comment>
+]]></Comment>
 								</SubVar>
 								<SubVar>
 									<Name>nCtrl3</Name>
-									<Comment>
-										<![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
+									<Comment><![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
 0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
 0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
 0x80 (1000 0000) = Stop
-]]>
-									</Comment>
+]]></Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut3</Name>
@@ -2066,60 +2165,14 @@ Drive Status 4 (manually linked):
 						<Name>Outputs</Name>
 						<Var>
 							<Name>ToPlc</Name>
-							<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 							<BitOffs>2688</BitOffs>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
 						</Var>
 					</Vars>
 				</Axis>
-				<Axis CreateSymbols="true" AxisType="1" Id="5">
-					<Name>Servo</Name>
+				<Axis Id="4" CreateSymbols="true" AxisType="1" AxisFolder="R1_Cartesian Portal" GroupId="2">
+					<Name>R1_Axis04_Z</Name>
 					<AxisPara>
-						<General UnitName="°"/>
 						<Dynamic Acceleration="17000" Deceleration="17000" Jerk="289000" DelayTime="0.015"/>
 						<Velo Maximum="16000"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
@@ -2130,22 +2183,13 @@ External Setpoint Generation:
 							<Name>Inputs</Name>
 							<Var>
 								<Name>In</Name>
-								<Type GUID="{3B4978B1-9ADE-48F4-B2A7-1323BC4A0651}" Namespace="MC">NCENCODERSTRUCT_IN2</Type>
+								<Type GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC">NCENCODERSTRUCT_IN2B</Type>
 								<BitOffs>4352</BitOffs>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn1</Name>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn2</Name>
-								</SubVar>
-								<SubVar>
-									<Name>nState4</Name>
-									<Comment>
-										<![CDATA[Encoder Status 4 (automatically linked):
-0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-]]>
-									</Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn3</Name>
@@ -2205,18 +2249,6 @@ External Setpoint Generation:
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn2</Name>
 								</SubVar>
-								<SubVar>
-									<Name>nState4</Name>
-									<Comment>
-										<![CDATA[Drive Status 4 (automatically linked):
-0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
-0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
-
-Drive Status 4 (manually linked):
-0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
-]]>
-									</Comment>
-								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataIn3</Name>
 								</SubVar>
@@ -2245,23 +2277,19 @@ Drive Status 4 (manually linked):
 								</SubVar>
 								<SubVar>
 									<Name>nCtrl2</Name>
-									<Comment>
-										<![CDATA[Digital Outputs Setpoint Generator:
+									<Comment><![CDATA[Digital Outputs Setpoint Generator:
 0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
 0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
 0x80 (1000 0000) = Stop
-]]>
-									</Comment>
+]]></Comment>
 								</SubVar>
 								<SubVar>
 									<Name>nCtrl3</Name>
-									<Comment>
-										<![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
+									<Comment><![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
 0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
 0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
 0x80 (1000 0000) = Stop
-]]>
-									</Comment>
+]]></Comment>
 								</SubVar>
 								<SubVar TypeFormatIndex="2">
 									<Name>nDataOut3</Name>
@@ -2295,53 +2323,8 @@ Drive Status 4 (manually linked):
 						<Name>Outputs</Name>
 						<Var>
 							<Name>ToPlc</Name>
-							<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 							<BitOffs>5376</BitOffs>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
 						</Var>
 					</Vars>
 				</Axis>
@@ -2363,17 +2346,14 @@ External Setpoint Generation:
 							<BitOffs>8064</BitOffs>
 							<SubVar>
 								<Name>ItpMode</Name>
-								<Comment>
-									<![CDATA[0x0000 = Default (deactivates the other modes)
+								<Comment><![CDATA[0x0000 = Default (deactivates the other modes)
 0x0001 = Single Block Mode NC Kernel (SAF)
 0x4000 = Single Block Mode Interpreter
-]]>
-								</Comment>
+]]></Comment>
 							</SubVar>
 							<SubVar>
 								<Name>ItpState</Name>
-								<Comment>
-									<![CDATA[Interpreter Operation State:
+								<Comment><![CDATA[Interpreter Operation State:
 0  = Init failed
 1  = Idle
 2  = Ready
@@ -2392,8 +2372,7 @@ External Setpoint Generation:
 15 = Stop
 16 = Wait function
 17 = Flush buffers
-]]>
-								</Comment>
+]]></Comment>
 							</SubVar>
 						</Var>
 					</Vars>
@@ -2414,7 +2393,7 @@ External Setpoint Generation:
 		</Motion>
 		<Plc>
 			<Project GUID="{91CB77D5-F3FA-446B-82A5-281F01C703B1}" Name="NCInterpolation" PrjFilePath="NCInterpolation\NCInterpolation.plcproj" TmcFilePath="NCInterpolation\NCInterpolation.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e">
-				<Instance Id="#x01010010" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="NCInterpolation\NCInterpolation.tmc">
 					<Name>NCInterpolation Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -2429,157 +2408,22 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.SERVO_AXIS[1].NcToPlc</Name>
-							<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.SERVO_AXIS[2].NcToPlc</Name>
-							<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.SERVO_AXIS[3].NcToPlc</Name>
-							<Type GUID="{8CDE0C45-AB9D-42DB-BC94-1CF7521AB268}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
+							<Type GUID="{72F5AAAA-16DF-4ED3-8367-F6C8C3ADAE99}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.nciGRPin</Name>
-							<Type>ARRAY [1..1] OF MC.NCTOPLC_NCICHANNEL_REF</Type>
+							<Type GUID="{45D9D182-C252-216C-9BD4-57E7AD7AF14A}">ARRAY [1..1] OF MC.NCTOPLC_NCICHANNEL_REF</Type>
 						</Var>
 					</Vars>
-					<Vars VarGrpType="2">
+					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
 							<Name>GVL.SERVO_AXIS[1].PlcToNc</Name>
@@ -2595,7 +2439,7 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.nciGRPout</Name>
-							<Type>ARRAY [1..1] OF MC.PLCTONC_NCICHANNEL_REF</Type>
+							<Type GUID="{5BADCFB9-BDED-2900-AEEF-46EFF514B76F}">ARRAY [1..1] OF MC.PLCTONC_NCICHANNEL_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.PCL</Name>
@@ -2606,11 +2450,25 @@ External Setpoint Generation:
 							<Type>UINT</Type>
 						</Var>
 					</Vars>
+					<Contexts>
+						<Context>
+							<Id NeedCalleeCall="true">0</Id>
+							<Name>PlcTask</Name>
+							<ManualConfig>
+								<OTCID>#x02010050</OTCID>
+							</ManualConfig>
+							<Priority>20</Priority>
+							<CycleTime>10000000</CycleTime>
+						</Context>
+					</Contexts>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
 				</Instance>
 			</Project>
 		</Plc>
 		<Io>
-			<Device Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="192.168.1.109.3.1" RemoteName="Device 2 (EtherCAT)" Id="2">
+			<Device Id="2" Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="192.168.1.109.3.1" RemoteName="Device 2 (EtherCAT)">
 				<Name>Device 2 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
@@ -2622,11 +2480,11 @@ External Setpoint Generation:
 				<Image Id="1" AddrType="9" ImageType="3">
 					<Name>Image</Name>
 				</Image>
-				<Box BoxType="9099" Id="24">
+				<Box Id="24" BoxType="9099">
 					<Name>Term 24 (EK1100)</Name>
 					<ImageId>1000</ImageId>
 					<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x00ffffff"/>
-					<Box BoxType="9099" Id="27">
+					<Box Id="27" BoxType="9099">
 						<Name>Term 27 (EL7201)</Name>
 						<ImageId>1001</ImageId>
 						<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CfgModeSafeOp="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1c213052" RevisionNo="#x00110000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" TimeoutMailbox2="2000" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7201 1Ch. MDP742 Servo motor output stage (50V, 4A)" Desc="EL7201" PortABoxInfo="#x01000018">
@@ -2723,7 +2581,7 @@ External Setpoint Generation:
 							<CoeProfile ProfileNo="48632713" DisplayName="Servo interface"/>
 						</EtherCAT>
 					</Box>
-					<Box BoxType="9099" Id="28">
+					<Box Id="28" BoxType="9099">
 						<Name>Term 28 (EL7031)</Name>
 						<ImageId>1001</ImageId>
 						<EtherCAT SlaveType="2" PdiType="#x0405" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="39" FoeType="1" VendorId="#x00000002" ProductCode="#x1b773052" RevisionNo="#x00150000" InfoDataAddr="true" InfoDataSoeDS401="true" TimeoutMailbox2="2000" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL7031 1Ch. Stepper motor output stage (24V, 1.5A)" Desc="EL7031" PortABoxInfo="#x0100001b">
@@ -2742,7 +2600,7 @@ External Setpoint Generation:
 							<Pdo Name="ENC Status compact" Index="#x1a00" Flags="#x0010" SyncMan="3">
 								<ExcludePdo>#x1a01</ExcludePdo>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Latch extern valid" Index="#x6000" Sub="#x02">
 									<Type>BIT</Type>
@@ -2757,10 +2615,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..2] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..3] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Status of extern latch" Index="#x6000" Sub="#x0d">
 									<Type>BIT</Type>
@@ -2769,7 +2627,7 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__TxPDO Toggle" Index="#x1800" Sub="#x09">
 									<Type>BIT</Type>
@@ -2784,7 +2642,7 @@ External Setpoint Generation:
 							<Pdo Name="ENC Status" Index="#x1a01" Flags="#x0010">
 								<ExcludePdo>#x1a00</ExcludePdo>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Latch extern valid" Index="#x6000" Sub="#x02">
 									<Type>BIT</Type>
@@ -2799,10 +2657,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..2] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..3] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Status of extern latch" Index="#x6000" Sub="#x0d">
 									<Type>BIT</Type>
@@ -2811,7 +2669,7 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__TxPDO Toggle" Index="#x1801" Sub="#x09">
 									<Type>BIT</Type>
@@ -2851,10 +2709,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..2] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Digital input 1" Index="#x6010" Sub="#x0c">
 									<Type>BIT</Type>
@@ -2866,7 +2724,7 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__TxPDO Toggle" Index="#x1803" Sub="#x09">
 									<Type>BIT</Type>
@@ -2904,10 +2762,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="POS Status" Index="#x1a06" Flags="#x0010">
@@ -2934,10 +2792,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Status__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 								<Entry Name="Actual position" Index="#x6020" Sub="#x11">
 									<Type>UDINT</Type>
@@ -2952,7 +2810,7 @@ External Setpoint Generation:
 							<Pdo Name="ENC Control compact" Index="#x1600" InOut="1" Flags="#x0010" SyncMan="2">
 								<ExcludePdo>#x1601</ExcludePdo>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Enable latch extern on positive edge" Index="#x7000" Sub="#x02">
 									<Type>BIT</Type>
@@ -2964,10 +2822,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..3] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 								<Entry Name="Set counter value" Index="#x7000" Sub="#x11">
 									<Type>UINT</Type>
@@ -2976,7 +2834,7 @@ External Setpoint Generation:
 							<Pdo Name="ENC Control" Index="#x1601" InOut="1" Flags="#x0010">
 								<ExcludePdo>#x1600</ExcludePdo>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000001}">ARRAY [0..0] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Enable latch extern on positive edge" Index="#x7000" Sub="#x02">
 									<Type>BIT</Type>
@@ -2988,10 +2846,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..3] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 								<Entry Name="Set counter value" Index="#x7000" Sub="#x11">
 									<Type>UDINT</Type>
@@ -3008,10 +2866,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..4] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000005}">ARRAY [0..4] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="STM Position" Index="#x1603" InOut="1" Flags="#x0010">
@@ -3041,10 +2899,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..5] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 								<Entry Name="Target position" Index="#x7020" Sub="#x11">
 									<Type>UDINT</Type>
@@ -3061,10 +2919,10 @@ External Setpoint Generation:
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..5] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000006}">ARRAY [0..5] OF BIT</Type>
 								</Entry>
 								<Entry Name="Control__Gap">
-									<Type>ARRAY [0..0] OF BYTE</Type>
+									<Type GUID="{18071995-0000-0000-0000-000300000001}">ARRAY [0..0] OF BYTE</Type>
 								</Entry>
 								<Entry Name="Target position" Index="#x7020" Sub="#x11">
 									<Type>UDINT</Type>
@@ -3087,7 +2945,7 @@ External Setpoint Generation:
 							<CoeProfile ProfileNo="46142345" DisplayName="Positioning interfac"/>
 						</EtherCAT>
 					</Box>
-					<Box BoxType="9100" Id="29">
+					<Box Id="29" BoxType="9100">
 						<Name>Term 28 (EL6601)</Name>
 						<ImageId>124</ImageId>
 						<EtherCAT SlaveType="6" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="47" EoeType="1" FoeType="1" VendorId="#x00000002" ProductCode="#x19c93052" RevisionNo="#x00130000" InfoDataAddr="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6601 1 Port Switch (Ethernet, CoE)" Desc="EL6601" PortABoxInfo="#x0100001c">
@@ -3102,19 +2960,30 @@ External Setpoint Generation:
 							<BootStrapData>00181402141a1402</BootStrapData>
 						</EtherCAT>
 					</Box>
-					<Box BoxType="9094" Id="30">
+					<Box Id="30" BoxType="9094">
 						<Name>Term 29 (EL6751)</Name>
 						<ImageId>1002</ImageId>
-						<EtherCAT SlaveType="5" AdsServerAddress="c0a8016d031f0000" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" FoeType="1" VendorId="#x00000002" ProductCode="#x1a5f3052" RevisionNo="#x00110000" InfoDataAddr="true" InfoDataNetId="true" TimeoutStateChange1="5000" TimeoutStateChange3="10000" TimeoutStateChange4="1000" TimeoutMailbox2="2000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6751 CANopen Master" Desc="EL6751" PortABoxInfo="#x0100001d">
+						<EtherCAT SlaveType="5" AdsServerAddress="a9fea2f4031f0000" FixedAdsServerNetId="true" PdiType="#x0c08" ExecIo="true" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="35" FoeType="1" VendorId="#x00000002" ProductCode="#x1a5f3052" RevisionNo="#x00110000" InfoDataAddr="true" InfoDataNetId="true" TimeoutStateChange1="5000" TimeoutStateChange3="10000" TimeoutStateChange4="1000" TimeoutMailbox2="2000" GenerateOwnNetId="true" InitializeOwnNetId="true" PortPhys="51" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL6751 CANopen Master" Desc="EL6751" PortABoxInfo="#x0100001d">
 							<SyncMan>00182e0226000100010000002800ce052e02001826010000</SyncMan>
 							<SyncMan>2e1a2e0222000100020000002800ce052e022e1a22010000</SyncMan>
 							<SyncMan>001000002600000003000000000000000000001026010000</SyncMan>
-							<SyncMan>001400002200000004000000000000000000001422010000</SyncMan>
+							<SyncMan>001402002200010004000000000000000000001422010000</SyncMan>
 							<Fmmu>0000000000000000001000020100000001000000000000000000000000000000</Fmmu>
 							<Fmmu>0000000000000000001400010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010140200181402</BootStrapData>
 							<SuName>Term 29 (EL6751)</SuName>
+							<Pdo Name="Device" Index="#x1a80" Flags="#x0011" SyncMan="3">
+								<Entry Name="Error" Index="#xf100" Sub="#x01" Flags="#x00000100">
+									<Type>USINT</Type>
+								</Entry>
+								<Entry Name="DiagFlag" Index="#xf100" Sub="#x02" Flags="#x00000100">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry>
+									<Type GUID="{18071995-0000-0000-0000-002000000007}">ARRAY [0..6] OF BIT</Type>
+								</Entry>
+							</Pdo>
 							<CoeProfile ProfileNo="5001"/>
 							<CoeProfile ProfileNo="5001"/>
 							<CoeProfile ProfileNo="5001"/>
@@ -3249,15 +3118,15 @@ External Setpoint Generation:
 							</Slot>
 						</EtherCAT>
 					</Box>
-					<Box BoxType="9099" Id="31">
+					<Box Id="31" BoxType="9099">
 						<Name>Term 30 (EL9011)</Name>
 						<ImageId>1003</ImageId>
 						<EtherCAT CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x23333050" InfoDataState="false" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL9011 End Terminal" Desc="EL9011" PortABoxInfo="#x0100001e"/>
 					</Box>
 				</Box>
-				<EtherCAT DeviceDesc="Local Area Connection (TwinCAT-Intel PCI Ethernet A" DcSyncMode="3" EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120"/>
+				<EtherCAT DcSyncMode="3" EnableVirtualSwitch="true" MaxSwitchPorts="2" MaxSwitchFrames="120"/>
 			</Device>
-			<Device Disabled="true" DevType="87" AmsPort="28673" AmsNetId="192.168.1.109.2.1" RemoteName="Device 1 (EL6751)" Id="1">
+			<Device Id="1" Disabled="true" DevType="87" AmsPort="28673" AmsNetId="192.168.1.109.2.1" RemoteName="Device 1 (EL6751)">
 				<Name>Device 1 (EL6751)</Name>
 				<AddressInfo>
 					<Ecat>
@@ -3268,15 +3137,14 @@ External Setpoint Generation:
 				<Image Id="4" AddrType="4" ImageType="3">
 					<Name>Image</Name>
 				</Image>
-				<Box BoxType="5003" BoxFlags="#x00000004" Id="26">
+				<Box Id="26" BoxType="5003" BoxFlags="#x00000004">
 					<Name>Box 26 (CANopen Slave)</Name>
 					<ImageId>41</ImageId>
 					<Vars VarGrpType="1">
 						<Name>Inputs</Name>
 						<Var BoxStateVariable="true">
 							<Name>NodeState</Name>
-							<Comment>
-								<![CDATA[Master- and Slave-Mode:
+							<Comment><![CDATA[Master- and Slave-Mode:
    0 = No error
 
 Master-Mode:
@@ -3298,17 +3166,14 @@ Slave-Mode:
  128 = Node is Operational but not all RxPDOs were received
  129 = Node is Pre-Operational
  130 = Node is Stopped
-]]>
-							</Comment>
+]]></Comment>
 							<Type>USINT</Type>
 							<BitOffs>80</BitOffs>
 						</Var>
 						<Var BoxStateVariable="true">
 							<Name>DiagFlag</Name>
-							<Comment>
-								<![CDATA[0 = Diagnosis Data unchanged
-1 = Diagnosis Data changed, use ADS-Read to get the data]]>
-							</Comment>
+							<Comment><![CDATA[0 = Diagnosis Data unchanged
+1 = Diagnosis Data changed, use ADS-Read to get the data]]></Comment>
 							<Type>BIT</Type>
 							<BitOffs>129</BitOffs>
 						</Var>
@@ -3406,21 +3271,7 @@ Slave-Mode:
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{01010011-0040-0304-1000-010140000403}" Id="#x03070050" Watchdog="00000000000000000000000000000000"/>
-		<MappingInfo Identifier="{05000010-0011-0101-3000-040310000101}" Id="#x03070020" Watchdog="08000000040000000400000004000000"/>
-		<MappingInfo Identifier="{00000000-0040-0304-3000-040340000403}" Id="#x03070040"/>
-		<MappingInfo Identifier="{00000000-0020-0304-3000-040320000403}" Id="#x03070030"/>
-		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x03070010"/>
-		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^FaulHaber_X">
-			<OwnerB Name="TIID^Device 1 (EL6751)^Box 26 (CANopen Slave)">
-				<Link VarA="Drive^Inputs^In^nState1" VarB="TxPDO 1^Inputs^Statusword"/>
-				<Link VarA="Drive^Inputs^In^nState2" VarB="TxPDO 1^Inputs^Statusword" Size="8" OffsB="8"/>
-				<Link VarA="Drive^Outputs^Out^nCtrl1" VarB="RxPDO 1^Outputs^Controlword"/>
-				<Link VarA="Drive^Outputs^Out^nCtrl2" VarB="RxPDO 1^Outputs^Controlword" Size="8" OffsB="8"/>
-				<Link VarA="Drive^Outputs^Out^nDataOut1" VarB="RxPDO 1^Outputs^Target Position"/>
-				<Link VarA="Enc^Inputs^In^nDataIn1" VarB="TxPDO 1^Inputs^Actual Position"/>
-			</OwnerB>
-		</OwnerA>
+		<MappingInfo Identifier="{05000010-2001-0850-3000-040300205008}" Id="#x02030010" Watchdog="08000000040000000400000004000000"/>
 		<OwnerA Name="TIPC^NCInterpolation^NCInterpolation Instance">
 			<OwnerB Name="TIID^Device 1 (EL6751)^Box 26 (CANopen Slave)">
 				<Link VarA="PlcTask Inputs^GVL.CURRENT_ACTUAL" VarB="TxPDO 2^Inputs^Current Actual Limit"/>
@@ -3428,17 +3279,17 @@ Slave-Mode:
 				<Link VarA="PlcTask Outputs^GVL.CCL" VarB="RxPDO 2^Outputs^CCL"/>
 				<Link VarA="PlcTask Outputs^GVL.PCL" VarB="RxPDO 2^Outputs^PCL"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^FaulHaber_X">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^R1_Axis01_X1">
 				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[1].NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[1].PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Servo">
-				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[3].NcToPlc" VarB="Outputs^ToPlc"/>
-				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[3].PlcToNc" VarB="Inputs^FromPlc"/>
-			</OwnerB>
-			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Stepper">
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^R1_Axis03_Y">
 				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[2].NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[2].PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^R1_Axis04_Z">
+				<Link VarA="PlcTask Inputs^GVL.SERVO_AXIS[3].NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.SERVO_AXIS[3].PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^NCI 2">
 				<Link VarA="PlcTask Inputs^GVL.nciGRPin[1]" VarB="Outputs^ToPlc"/>

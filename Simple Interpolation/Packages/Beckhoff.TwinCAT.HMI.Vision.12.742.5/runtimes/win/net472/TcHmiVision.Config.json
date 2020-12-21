@@ -1,0 +1,17 @@
+{
+  "$schema": "ExtensionSettings.Schema.json",
+  "version": "1.12.742.5",
+  "configVersion": "1.0.0.12",
+  "guid": "3fb9ee51-4588-4f96-8824-2d847d442ae0",
+  "symbols": {
+    "ListSymbols": {},
+    "GetSchema": {
+      "readValue": {
+        "function": true
+      }
+    }
+  },
+  "dotNetTargetFrameworkVersion": "v4.7.2",
+  "productVersion": "1.12.742.5",
+  "signature": "DxQTwGUbaKAXRQR474rHhZuwcZiUVuKVnbwHSNEKs3ITNqi6qNftY2hEzAeUq/kmPECmAiYo+fY+dCdmWWi68G9qTMT04LbTLE7JnZVdmQC8tyWsNml0zORuPZ6FMaaRh+94ULbrngQ3lQiOXPjHZUnQ8uTqTQq9jxWJ7QoOI3ktlnpMNyRltSmyCG2jIRrpFiUgxDW3XnA9dTDDO1+6qC11RLfYTs4ExfFPHPaqme0D5dyQGf1YnzaUbUbp4ppGqhmFvBZyl8oHF0d07ASOYOxayCbWONuJZFXPQ2a+BQ5NeGMLlm9DQrNdX+LdW6bHrlGjQv8trdn9yAJYcg9RLw=="
+}

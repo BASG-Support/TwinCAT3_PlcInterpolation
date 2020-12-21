@@ -1,0 +1,1 @@
+var TcHmi;!function(n){let i;!function(i){let c;!function(i){i.CheckBinding=function(i,c){return!!n.Binding.exists(c,i)}}(c=i.Beckhoff||(i.Beckhoff={})),i.registerFunctionEx("CheckBinding","TcHmi.Functions.Beckhoff",c.CheckBinding)}(i=n.Functions||(n.Functions={}))}(TcHmi||(TcHmi={}));
